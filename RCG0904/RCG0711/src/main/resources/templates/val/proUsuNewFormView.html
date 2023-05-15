@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Lugares/Usuario Nueva relación</h1>
+    <form method="post" action="#" th:action="@{/valoracion/new/submit}" th:object="${valoracionForm}">
+        Producto:<br />
+        <select name="list1" th:field="*{Lugares}">
+            <option value="0">select option</option> <!--opcion por defecto-->
+            <option th:each="lugares:${listaLugares}" th:value="${lugares.id}" th:text="${lugares.nombre}">
+            </option>
+        </select><br />
+        Usuario:<br />
+        <select name="list2" th:field="*{Usuario}">
+            <option value="0">select option</option> <!--opcion por defecto-->
+            <option th:each="usuario:${listaUsuario}" th:value="${usuario.id}" th:text="${usuario.nombre}">
+            </option>
+        </select><br />
+        <label>Puntuacion:<input type="text" id="puntuacion" th:field="*{puntuacion}" /></label><br />
+        <label>Comentario: <br><textarea id="comentario" th:field="*{comentario}" cols="30"
+                rows="10"></textarea></label><br />
+        <input type="submit" value="Enviar" />
+    </form>
+    <a href="/">Inicio</a><br />
+</body>
+
+</html>

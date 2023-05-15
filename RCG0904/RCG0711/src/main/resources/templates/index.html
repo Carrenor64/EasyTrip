@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragmentos.html::cabecera"></head>
+<link rel="stylesheet" href="css/index.css">
+
+<body>
+    <nav th:replace="fragmentos.html::indice"></nav>
+
+    <div id="prueba">
+        <!-- <nav class="navbar navbar-light justify-content-between"> -->
+            <form  class="form-inline">
+                <input id="inputSearch" class="form-control" type="search" placeholder="Search" aria-label="Search">
+                <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+            </form>
+        </nav>
+    </div>
+    <div>
+        <div id="bloqueUno" class="bloques">
+            <div id="uno">cuadro uno</div>
+            <div id="dos"><img src="img/newyork.jpg" alt=""></div>
+        </div>
+        <div id="bloqueDos" class="bloques">
+            <div id="tres"><img src="img/paris.jpg" alt=""></div>
+            <div id="cuatro"></div>
+        </div>
+        <div id="bloqueTres" class="bloques">
+            <div id="cinco"></div>
+            <div id="seis"><img src="img/tokyo.jpg" alt=""></div>
+        </div>
+        <div id="bloqueCuatro" class="bloques">
+            <div class="siete"><img src="img/coruña.jpg" alt=""></div>
+            <div class="ocho"></div>
+        </div>
+        <div id="bloqueCinco" class="bloques">
+            <div class="nueve"></div>
+            <div class="diez"><img src="img/brasilia.jpg" alt=""></div>
+        </div>
+    </div>
+    <div class="card text-center" id="div">
+        <div class="card-body">
+            <a class="nav-item nav-link active text-danger" th:href="@{/login}">Iniciar sesión</a>
+            <form id="boton" th:action="@{/logout}" method="post">
+                <input type="submit" class="btn" value="Cerrar sesión">
+            </form>
+        </div>
+        <div class="card-footer text-muted">
+            <p><span id="anhoActual" th:text="${fechaActual}"></span></p>
+        </div>
+    </div>
+</body>
+
+</html>

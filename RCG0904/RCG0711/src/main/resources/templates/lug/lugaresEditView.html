@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lugar CRUD</title>
+</head>
+
+<body>
+    <h1>Nuevo Lugar</h1>
+    <form method="post" action="#" th:action="@{/lugares/edit/submit}" th:object="${lugarForm}">
+        <label>Categoria
+            <select name="categoria" th:field="*{idCategoria}">
+                <option th:each="cat : ${listaCategorias}" th:value="${cat.id}" th:text="${cat.nombre}">
+                </option>
+            </select>
+        </label><br />
+        <!-- <label>Id: <input type="text" id="id" th:field="*{id}" /> </label><br /> -->
+        <label>Nombre: <input type="text" id="nombre" th:field="*{nombre}" /></label><br />
+        <label>Oferta: <input type="checkbox" id="enOferta" th:field="*{enOferta}" /></label><br />
+        <label>Precio: <input type="text" id="precio" th:field="*{precio}" /></label><br />
+        IVA:<br />
+        <div th:each="gen:${T(com.example.demo.domain.TipoIva).values()}">
+            <input type="radio" name="button1" th:value="${gen}" th:text="${gen}" th:field="*{TipoIva}" />
+        </div>
+        <input type="submit" value="enviar">
+    </form>
+    <a href="/">Inicio</a><br />
+    </form>
+</body>

@@ -1,0 +1,157 @@
+body{
+    background-color: #3C486B;
+}
+.bloques {
+    width: 90%;
+    height: 300px;
+}
+
+img{
+    width: 100%;
+    height: 100%;
+}
+
+#bloqueUno {
+    margin-top: 2%;
+    margin-left: 5%;
+    text-align: center;
+
+}
+
+#bloqueUno>div:first-child {
+    background-color: white;
+    width: 50%;
+    height: 300px;
+    float: left;
+
+}
+
+#bloqueUno>div:last-child {
+    background-color: white;
+    width: 50%;
+    height: 300px;
+    float: right;
+
+}
+
+
+#bloqueDos {
+    margin-top: 2%;
+    margin-left: 5%;
+    text-align: center;
+}
+
+#bloqueDos>div:first-child {
+    background-color: white;
+    width: 50%;
+    height: 300px;
+    float: left;
+
+}
+
+#bloqueDos>div:last-child {
+    background-color: white;
+    width: 50%;
+    height: 300px;
+    float: right;
+
+}
+
+#bloqueTres {
+    margin-top: 2%;
+    margin-left: 5%;
+    text-align: center;
+}
+
+#bloqueTres>div:first-child {
+    background-color: white;
+    width: 50%;
+    height: 300px;
+    float: left;
+
+}
+
+#bloqueTres>div:last-child {
+    background-color: white;
+    width: 50%;
+    height: 300px;
+    float: right;
+
+}
+
+#bloqueCuatro {
+    margin-top: 2%;
+    margin-left: 5%;
+    text-align: center;
+}
+
+#bloqueCuatro>div:first-child {
+    background-color: white;
+    width: 50%;
+    height: 300px;
+    float: left;
+
+}
+
+#bloqueCuatro>div:last-child {
+    background-color: white;
+    width: 50%;
+    height: 300px;
+    float: right;
+
+}
+
+#bloqueCinco {
+    margin-top: 2%;
+    margin-left: 5%;
+    text-align: center;
+    margin-bottom: 3%;
+}
+
+#bloqueCinco>div:first-child {
+    background-color: white;
+    width: 50%;
+    height: 300px;
+    float: left;
+
+}
+
+#bloqueCinco>div:last-child {
+    background-color: white;
+    width: 50%;
+    height: 300px;
+    float: right;
+
+}
+
+#prueba {
+    margin: auto;
+    width: 60rem; 
+}
+
+#inputSearch {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
+
+
+#div {
+    background-color: #F9D949;
+}
+
+input {
+    background-color: #F45050;
+}
+
+#anhoActual {
+    color: #3C486B;
+}
+
+@media (max-width: 1000px) {
+    #prueba {
+        margin-left: 200px;
+        width: 30rem;
+    }
+}

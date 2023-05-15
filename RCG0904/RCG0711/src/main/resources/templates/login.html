@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<link rel="stylesheet" href="css/login.css">
+<head>
+    <title>Inicio de sesión</title>
+</head>
+
+<body>
+    <div class="col-sm-6">
+        <h1>EasyTrip</h1>
+        <p id="informacion">Proporciona información actualizada sobre
+            los principales de stinos turísticos del mundo
+            para ayudar a los viajeros a planificar y
+            disfrutar mejor de sus viajes.</p>
+    </div>
+    <div th:if="${param.error}">Invalid username and password.</div>
+    <div th:if="${param.logout}">You have been logged out.</div>
+    <form th:action="@{/login}" id="fondo" method="post">
+        <input type="text" id="usuario" name="username" placeholder="Correo eléctronico o usuario">
+        <input type="password" id="contrasenha" name="password" placeholder="contraseña">
+        <input type="submit" id="inicio" value="Log in" />
+        <p id="noIni">¿No puedes iniciar sesión?</p>
+        <input type="submit" id="crear" value="Crear cuenta">
+    </form>
+</body>
+
+</html>
+

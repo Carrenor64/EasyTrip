@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border: 1px solid;
+            border-collapse: collapse;
+        }
+
+        td,
+        th {
+            border: 1px solid;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Listado de Usuario</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre
+                <th>Fecha Registro</th>
+                <th>Contraseña</th>
+                <th>ROL</th>
+                <th>Editar</th>
+                <th>Borrar</th>
+                <th>Valoraciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="usuario : ${listaUsuario}">
+                <td th:text="${usuario.id}">Id</td>
+                <td th:text="${usuario.nombre}">nombre</td>
+                <td th:text="${usuario.fechaRegistro}">nombre</td>
+                <td th:text="${usuario.password}">Contraseña</td>
+                <td th:text="${usuario.rol}">ROL</td>
+                <td><a th:href="@{/usuario/edit/{id}(id=${usuario.id})}">
+                        Editar</a></td>
+                <td><a th:href="@{/usuario/delete/{id}(id=${usuario.id})}">
+                        Borrar</a></td>
+                <td><a th:href="@{/valoracion/usu/{id}(id=${usuario.id})}">
+                        Valoraciones:<span th:text="${usuario.valoracion.size}">
+                            Id </span></a></td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="/public">Inicio</a><br />
+    <a href="/usuario/new">Nuevo Usuario</a><br />
+</body>
+
+</html>

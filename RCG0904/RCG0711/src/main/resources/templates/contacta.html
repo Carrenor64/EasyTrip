@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Contacta</h1>
+    <div>
+        <ul>
+            <li><a href="index">Inicio</a></li>
+            <li><a href="contacta">Contacta</a></li>
+            <li><a href="productos">Productos</a></li>
+            <li><a href="quienes-somos">Quienes somos?</a></li>
+        </ul>
+    </div>
+    <div>
+        <img src="img/contacto.jpg" width="40%" height="40%"/>
+    </div>
+    <form action="#" method="post" th:action="@{/contacta/submit}"
+    th:object="${formInfo}">
+    <label>Nombre:
+        <input type="text" id="nombre" th:field="*{nombre}">
+    </label><br>
+    <label>Email:
+        <input type="text" id="email" th:field="*{email}">
+    </label><br>
+    <label for="lista">Motivo:</label>
+        <select name="lista" id="lista">
+        <option value="queja">Queja</option>
+        <option value="consulta">Consulta</option>
+        <option value="otros">Otros</option>
+    </select><br>
+    <label> Aceptar Condiciones<input type="checkbox" id="lista" th:field="*{aceptarCondiciones}">
+    </label><br>
+    <label>Comentario:
+        <textarea rows="5" name="comentarios" cols="10" th:field="*{comentario}"></textarea>
+    </label><br>
+    <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>
