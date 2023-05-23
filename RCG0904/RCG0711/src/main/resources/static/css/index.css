@@ -1,12 +1,13 @@
-body{
+body {
     background-color: #3C486B;
 }
+
 .bloques {
     width: 90%;
     height: 300px;
 }
 
-img{
+img {
     width: 100%;
     height: 100%;
 }
@@ -23,7 +24,23 @@ img{
     width: 50%;
     height: 300px;
     float: left;
+}
 
+#uno {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.7);
+}
+
+#uno>p {
+    border: 1px solid;
+    margin: auto;
+    text-align: center;
+    color: black;
+    width: 60%;
+    font-size: 20px;
 }
 
 #bloqueUno>div:last-child {
@@ -33,7 +50,6 @@ img{
     float: right;
 
 }
-
 
 #bloqueDos {
     margin-top: 2%;
@@ -46,7 +62,6 @@ img{
     width: 50%;
     height: 300px;
     float: left;
-
 }
 
 #bloqueDos>div:last-child {
@@ -126,7 +141,7 @@ img{
 
 #prueba {
     margin: auto;
-    width: 60rem; 
+    width: 60rem;
 }
 
 #inputSearch {

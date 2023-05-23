@@ -1,10 +1,18 @@
-body{
-    background-color: #3C486B;
+
+#titulo {
+    /* background-color: #F9D949; */
+    color: #F45050;
+    /* padding: 10px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
 table {
     border: 1px solid;
     border-collapse: collapse;
 }
+
 
 td,
 th {

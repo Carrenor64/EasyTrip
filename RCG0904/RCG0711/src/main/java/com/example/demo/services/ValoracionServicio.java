@@ -8,6 +8,8 @@ import com.example.demo.domain.Valoracion;
 
 public interface ValoracionServicio {
     public Valoracion findById(Long id);
+    
+    public List<Valoracion> findAll();
 
     public Valoracion add(Valoracion valoracion);
 
@@ -18,4 +20,6 @@ public interface ValoracionServicio {
     public List<Valoracion> findByUsuario(Usuario usuario);
 
     public Valoracion findByProductosAndUsuario(Lugares pro, Usuario usu);
+
+    // public Valoracion findOneValoracion(long id);
 }

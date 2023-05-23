@@ -9,10 +9,10 @@
 </head>
 
 <body>
-    <h1>Lugares/Usuario Nueva relación</h1>
+    <h1>Productos/Usuario Nueva relación</h1>
     <form method="post" action="#" th:action="@{/valoracion/new/submit}" th:object="${valoracionForm}">
         Producto:<br />
-        <select name="list1" th:field="*{Lugares}">
+        <select name="list1" th:field="*{lugares}">
             <option value="0">select option</option> <!--opcion por defecto-->
             <option th:each="lugares:${listaLugares}" th:value="${lugares.id}" th:text="${lugares.nombre}">
             </option>

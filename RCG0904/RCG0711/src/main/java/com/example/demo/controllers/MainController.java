@@ -31,8 +31,8 @@ public class MainController {
         // return "index";
         // }
 
-        @GetMapping({ "/index", "/home", "/","" })
-        public String showHome(@RequestParam(name="usuario") Optional<String> usuario,
+        @GetMapping({ "/index", "/home", "/", "" })
+        public String showHome(@RequestParam(name = "usuario") Optional<String> usuario,
                         Model model) {
                 model.addAttribute("fechaActual", anhoActual);
                 model.addAttribute("usuario", usuario.orElse("X"));
@@ -45,31 +45,37 @@ public class MainController {
                 return "contacta";
         }
 
-        // @GetMapping({ "/productosList" })
-        // public String showProductos(Model model) {
-        //         producto.add("papa");
-        //         producto.add("manzana");
-        //         producto.add("limón");
-        //         producto.add("leche");
-        //         model.addAttribute("producto", producto);
-        //         return "productosList";
-        // }
 
-        @GetMapping("/quienes-somos")
-        public String showQuiens() {
-                return "aboutUsView";
+        @GetMapping("/corunha")
+        public String showCorunha() {
+                return "corunha";
+        }
+
+        @GetMapping("/tokio")
+        public String showTokio() {
+                return "tokio";
+        }
+
+        @GetMapping("/paris")
+        public String showParis() {
+                return "paris";
+        }
+
+        @GetMapping("/brasilia")
+        public String showBrasilia() {
+                return "brasilia";
         }
 
         // @PostMapping("/contacta/submit")
         // public String showMyformView(@ModelAttribute FormInfo formInfo, Model model){
-        //         return "formSubmit";
+        // return "formSubmit";
         // }
         @PostMapping("/contacta/submit")
-        public String showMyformView(@Valid FormInfo formInfo, BindingResult bindingResult){
+        public String showMyformView(@Valid FormInfo formInfo, BindingResult bindingResult) {
                 System.out.println(formInfo.getNombre());
-                if(bindingResult.hasErrors()){
+                if (bindingResult.hasErrors()) {
                         return "redirect:/contacta";
-                }else{
+                } else {
                         return "formSubmit";
                 }
         }

@@ -27,16 +27,16 @@ public class Usuario {
     @GeneratedValue
     long id;
     String nombre;
-    String fechaRegistro;
+    String fechaNacimiento;
     String password;
     Rol rol;
     @ToString.Exclude
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
     private List<Valoracion> valoracion = new ArrayList<>();
 
-    public Usuario(String nombre, String fechaRegistro, String password, Rol rol) {
+    public Usuario(String nombre, String fechaNacimiento, String password, Rol rol) {
         this.nombre = nombre;
-        this.fechaRegistro = fechaRegistro;
+        this.fechaNacimiento = fechaNacimiento;
         this.password = password;
         this.rol = rol;
     }

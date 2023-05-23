@@ -11,7 +11,7 @@
 <body>
     <form method="post" action="#" th:action="@{/usuario/edit/submit}" th:object="${usuarioForm}">
         <label>Nombre: <input type="text" id="nombre" th:field="*{nombre}" /></label><br />
-        <label>Fecha de Registro: <input type="text" id="fechaRegistro" th:field="*{fechaRegistro}" /></label><br />
+        <label>Fecha de Registro: <input type="text" id="fechaNacimiento" th:field="*{fechaNacimiento}" /></label><br />
         <label>Contraseña: <input type="text" id="password" th:field="*{password}" /></label><br />
         Rol:<br />
         <div th:each="rol : ${T(com.example.demo.domain.Rol).values()}">

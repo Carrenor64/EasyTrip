@@ -19,8 +19,16 @@ public class ValoracionServiceImpl implements ValoracionServicio {
         return repositorio.save(valoracion);
     }
 
+    public List<Valoracion> findAll() {
+        return repositorio.findAll();
+    }
+
     public Valoracion findById(Long id) {
         return repositorio.findById(id).orElse(null);
+    }
+
+    public Valoracion edit(Valoracion d) {
+        return repositorio.save(d);
     }
 
     public void delete(Valoracion valoracion) {
@@ -38,4 +46,10 @@ public class ValoracionServiceImpl implements ValoracionServicio {
     public Valoracion findByProductosAndUsuario(Lugares pro, Usuario usu) {
         return repositorio.findByProductosAndUsuario(pro, usu);
     }
+
+    // public Valoracion findOneValoracion(long id) {
+    //     Valoracion valoracion = repositorio.findById(id)
+    //             .orElseThrow(() -> new ValoracionNotFound(id));
+    //     return valoracion;
+    // }
 }

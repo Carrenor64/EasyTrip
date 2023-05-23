@@ -41,7 +41,7 @@ public class UsuarioController {
             return "usu/usuarioNewFormView";
         }
         nuevoUsuario = usuarioService.add(nuevoUsuario);
-        return "redirect:/usuario/list";
+        return "redirect:/";
     }
     @GetMapping("/delete/{id}")
     public String showDelete(@PathVariable long id) {

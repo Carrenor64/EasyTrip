@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 // import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-
 import com.example.demo.domain.Lugares;
 import com.example.demo.services.CategoriaServicelmplMen;
 import com.example.demo.services.LugaresServiceImplMem;
@@ -28,7 +27,7 @@ public class LugaresController {
     @Autowired
     CategoriaServicelmplMen categoriaService;
 
-    @GetMapping({ "/", "/list",""})
+    @GetMapping({ "/", "/list", "" })
     public String showList(Model model) {
         model.addAttribute("listaLugares", lugaresService.findAll());
         model.addAttribute("listaCategorias", categoriaService.findAll());
@@ -45,6 +44,38 @@ public class LugaresController {
         return "lug/lugaresList";
     }
 
+    // @GetMapping("/{nameCat}")
+    // public String showLugar(@PathVariable String nameCat, Model model) {
+    //     // model.addAttribute("listaProductos", productoService.findByCategoria(idCat));
+    //     // model.addAttribute("listaLugares", lugaresService.findByCategoria(categoriaService.findById(idCat)));
+    //     // model.addAttribute("listaCategorias", categoriaService.findAll());
+    //     // model.addAttribute("categoriaSeleccionada", categoriaService.findById(idCat).getNombre());
+    //     model.addAttribute("lugar", categoriaService.findByNombre(nameCat));
+    //     return "details";
+    // }
+
+    @GetMapping("/newyork")
+    public String showNewYork( Model model) {
+        // model.addAttribute("listaProductos", productoService.findByCategoria(idCat));
+        // model.addAttribute("listaLugares", lugaresService.findByCategoria(categoriaService.findById(idCat)));
+        // model.addAttribute("listaCategorias", categoriaService.findAll());
+        // model.addAttribute("categoriaSeleccionada", categoriaService.findById(idCat).getNombre());
+        model.addAttribute("lugar", categoriaService.findByNombre("USA"));
+        System.out.println("********"+categoriaService.findByNombre("USA"));
+        return "newyork";
+    }
+
+    @GetMapping("/paris")
+    public String showParis( Model model) {
+        // model.addAttribute("listaProductos", productoService.findByCategoria(idCat));
+        // model.addAttribute("listaLugares", lugaresService.findByCategoria(categoriaService.findById(idCat)));
+        // model.addAttribute("listaCategorias", categoriaService.findAll());
+        // model.addAttribute("categoriaSeleccionada", categoriaService.findById(idCat).getNombre());
+        model.addAttribute("lugar", categoriaService.findByNombre("France"));
+        System.out.println("********"+categoriaService.findByNombre("USA"));
+        return "paris";
+    }
+
     @GetMapping("/new")
     public String showNew(Model model) {
         // el commandobject del formulario es una instancia de producto vacia
@@ -59,7 +90,7 @@ public class LugaresController {
             BindingResult bindingResult) {
         if (bindingResult.hasErrors())
             return "newForm";
-            lugaresService.add(nuevoLugar);
+        lugaresService.add(nuevoLugar);
         return "redirect:/lugares/list";
     }
 

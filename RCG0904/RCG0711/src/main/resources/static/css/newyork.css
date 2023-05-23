@@ -1,0 +1,26 @@
+#titulo {
+    color: #F9D949;
+    text-align: center;
+    margin: auto;
+}
+
+#easy {
+    color: #F45050;
+    padding-left: 10px;
+}
+
+.row {
+    border: 1px solid;
+}
+
+.col-sm-3 {
+    border: 1px solid;
+    width: 50px;
+    height: 250px;
+}
+
+@media (max-width: 1000px) {
+    #titulo {
+        display: none;
+    }
+}

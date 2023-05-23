@@ -1,0 +1,5 @@
+id,fecha_nacimiento,nombre,password,rol
+3,22-12-2012,manolo,$2a$10$qBE81z0m/4KnIL2QzC52pevqvRvvf46nL9zq4XUZ/UCzrFqz3y8gy,2
+4,22-12-2022,Antonio,$2a$10$bwGylPlsGoOr6O9B.km1ueZR7A04p4ptOaysSNYQJUucn7fQwokf6,0
+5,22-12-2012,paco,$2a$10$JL6RmLgq54ugQ2ZJdaPy6eOVMHcKvDFKYMwAdfq7mrhMtSKi.V.iy,1
+8,22-03-2002,ricardo,$2a$10$SWCGBXlRcjHFtjVudxWBEuwno/SDpatBRZRy6kwF7xQ.lpwOD9e.K,0
