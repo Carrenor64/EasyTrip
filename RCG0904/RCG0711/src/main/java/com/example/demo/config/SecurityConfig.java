@@ -31,7 +31,7 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeRequests()
 
-                .antMatchers("/webjars/**", "/css/**", "/img/**").permitAll() // rec.estaticos
+                .antMatchers("/webjars/**", "/css/**", "/img/**", "/js/**").permitAll() // rec.estaticos
                 .antMatchers("/").permitAll()
                 .antMatchers("/productos").permitAll()
                 .antMatchers("/valoracion/new/**").hasRole("USER")

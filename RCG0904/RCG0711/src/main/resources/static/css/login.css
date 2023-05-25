@@ -57,18 +57,6 @@ h1 {
     border-radius: 12px;
 }
 
-#contrasenha {
-    box-sizing: border-box;
-    position: absolute;
-    width: 350px;
-    height: 55px;
-    right: 40px;
-    top: 200px;
-    background: #F0F0F0;
-    border: 1px solid #000000;
-    border-radius: 12px;
-}
-
 ::placeholder {
     padding-left: 10px;
 }
@@ -118,8 +106,56 @@ h1 {
     text-decoration: none;
 }
 
+#contrasenha-div {
+    display: flex;
+    align-items: center;
+    /* Alinea verticalmente el contenido */
+    justify-content: space-between;
+    position: absolute;
+    width: 350px;
+    right: 40px;
+    top: 200px;
+}
+
+#contrasenha {
+    box-sizing: border-box;
+    width: 280px;
+    /* Ajustar según sea necesario */
+    height: 55px;
+    background: #F0F0F0;
+    border: 1px solid #000000;
+    border-radius: 12px;
+}
+
+#toggle-password {
+    background-color: #F0F0F0;
+    border: 1px solid;
+    border-radius: 12px;
+    width: 50px;
+    /* Ajustar según sea necesario */
+    height: 40px;
+    /* Ajustar según sea necesario */
+    color: #3C486B;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    /* Alinea verticalmente el contenido del botón */
+    justify-content: center;
+    /* Alinea horizontalmente el contenido del botón */
+}
+
+#toggle-password img {
+    width: 50%;
+    /* ajusta este valor */
+    height: 50%;
+    /* ajusta este valor */
+}
+
 @media (max-width: 1000px) {
-    h1, #informacion {
+
+    h1,
+    #informacion {
         display: none;
     }
 }

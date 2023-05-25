@@ -9,5 +9,8 @@ import com.example.demo.domain.Lugares;
 
 public interface LugaresRepository extends JpaRepository<Lugares, Long> {
     List<Lugares> findByCategoria(Categoria categoria);
+
     Lugares findByNombre(String Nombre);
+
+  
 }

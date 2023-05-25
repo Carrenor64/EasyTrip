@@ -5,25 +5,23 @@ body {
 .bloques {
     width: 90%;
     height: 300px;
-}
-
-img {
-    width: 100%;
-    height: 100%;
-}
-
-#bloqueUno {
     margin-top: 2%;
     margin-left: 5%;
     text-align: center;
-
 }
 
-#bloqueUno>div:first-child {
+.bloques>div {
     background-color: white;
     width: 50%;
     height: 300px;
+}
+
+.bloques>div:first-child {
     float: left;
+}
+
+.bloques>div:last-child {
+    float: right;
 }
 
 #uno {
@@ -43,105 +41,9 @@ img {
     font-size: 20px;
 }
 
-#bloqueUno>div:last-child {
-    background-color: white;
-    width: 50%;
-    height: 300px;
-    float: right;
-
-}
-
-#bloqueDos {
-    margin-top: 2%;
-    margin-left: 5%;
-    text-align: center;
-}
-
-#bloqueDos>div:first-child {
-    background-color: white;
-    width: 50%;
-    height: 300px;
-    float: left;
-}
-
-#bloqueDos>div:last-child {
-    background-color: white;
-    width: 50%;
-    height: 300px;
-    float: right;
-
-}
-
-#bloqueTres {
-    margin-top: 2%;
-    margin-left: 5%;
-    text-align: center;
-}
-
-#bloqueTres>div:first-child {
-    background-color: white;
-    width: 50%;
-    height: 300px;
-    float: left;
-
-}
-
-#bloqueTres>div:last-child {
-    background-color: white;
-    width: 50%;
-    height: 300px;
-    float: right;
-
-}
-
-#bloqueCuatro {
-    margin-top: 2%;
-    margin-left: 5%;
-    text-align: center;
-}
-
-#bloqueCuatro>div:first-child {
-    background-color: white;
-    width: 50%;
-    height: 300px;
-    float: left;
-
-}
-
-#bloqueCuatro>div:last-child {
-    background-color: white;
-    width: 50%;
-    height: 300px;
-    float: right;
-
-}
-
-#bloqueCinco {
-    margin-top: 2%;
-    margin-left: 5%;
-    text-align: center;
-    margin-bottom: 3%;
-}
-
-#bloqueCinco>div:first-child {
-    background-color: white;
-    width: 50%;
-    height: 300px;
-    float: left;
-
-}
-
-#bloqueCinco>div:last-child {
-    background-color: white;
-    width: 50%;
-    height: 300px;
-    float: right;
-
-}
-
-#prueba {
-    margin: auto;
-    width: 60rem;
+img {
+    width: 100%;
+    height: 100%;
 }
 
 #inputSearch {
@@ -150,7 +52,10 @@ img {
     border-radius: 12px;
 }
 
-
+#searchInput {
+    flex-grow: 1;
+    width: 80%;
+}
 
 #div {
     background-color: #F9D949;

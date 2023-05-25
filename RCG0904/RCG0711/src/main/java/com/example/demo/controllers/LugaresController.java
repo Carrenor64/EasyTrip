@@ -1,5 +1,8 @@
 package com.example.demo.controllers;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +13,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-// import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.domain.Lugares;
@@ -44,36 +46,22 @@ public class LugaresController {
         return "lug/lugaresList";
     }
 
-    // @GetMapping("/{nameCat}")
-    // public String showLugar(@PathVariable String nameCat, Model model) {
-    //     // model.addAttribute("listaProductos", productoService.findByCategoria(idCat));
-    //     // model.addAttribute("listaLugares", lugaresService.findByCategoria(categoriaService.findById(idCat)));
-    //     // model.addAttribute("listaCategorias", categoriaService.findAll());
-    //     // model.addAttribute("categoriaSeleccionada", categoriaService.findById(idCat).getNombre());
-    //     model.addAttribute("lugar", categoriaService.findByNombre(nameCat));
-    //     return "details";
-    // }
 
-    @GetMapping("/newyork")
-    public String showNewYork( Model model) {
-        // model.addAttribute("listaProductos", productoService.findByCategoria(idCat));
-        // model.addAttribute("listaLugares", lugaresService.findByCategoria(categoriaService.findById(idCat)));
-        // model.addAttribute("listaCategorias", categoriaService.findAll());
-        // model.addAttribute("categoriaSeleccionada", categoriaService.findById(idCat).getNombre());
-        model.addAttribute("lugar", categoriaService.findByNombre("USA"));
-        System.out.println("********"+categoriaService.findByNombre("USA"));
-        return "newyork";
-    }
+    @GetMapping("/{lugar}")
+    public String showLugar(@PathVariable String lugar, Model model) {
+        Map<String, String> lugarCategoriaMap = new HashMap<>();
+        lugarCategoriaMap.put("newyork", "USA");
+        lugarCategoriaMap.put("paris", "France");
 
-    @GetMapping("/paris")
-    public String showParis( Model model) {
-        // model.addAttribute("listaProductos", productoService.findByCategoria(idCat));
-        // model.addAttribute("listaLugares", lugaresService.findByCategoria(categoriaService.findById(idCat)));
-        // model.addAttribute("listaCategorias", categoriaService.findAll());
-        // model.addAttribute("categoriaSeleccionada", categoriaService.findById(idCat).getNombre());
-        model.addAttribute("lugar", categoriaService.findByNombre("France"));
-        System.out.println("********"+categoriaService.findByNombre("USA"));
-        return "paris";
+        String categoria = lugarCategoriaMap.get(lugar);
+        if (categoria != null) {
+            model.addAttribute("lugar", categoriaService.findByNombre(categoria));
+            return lugar;
+        }
+
+        // Si el lugar no existe en el mapa, puedes manejarlo de alguna otra manera,
+        // como mostrar una página de error.
+        return "error";
     }
 
     @GetMapping("/new")

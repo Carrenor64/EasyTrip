@@ -20,18 +20,17 @@ public class LugaresServiceImplMem implements LugaresService {
     }
 
     public Lugares add(Lugares p) {
-        repositorio.save(p); 
+        repositorio.save(p);
         return p;
     }
 
     public List<Lugares> findAll() {
-        return repositorio.findAll(); 
+        return repositorio.findAll();
     }
 
-
     public Lugares findById(long id) {
-        return repositorio.findById(id).orElse(null); 
-        
+        return repositorio.findById(id).orElse(null);
+
     }
 
     public Lugares edit(Lugares e) {
@@ -39,48 +38,48 @@ public class LugaresServiceImplMem implements LugaresService {
     }
 
     public void delete(Long id) {
-         repositorio.deleteById(id);
+        repositorio.deleteById(id);
     }
 
-    public Lugares findByNombre(String nombre){
+    public Lugares findByNombre(String nombre) {
         return repositorio.findByNombre(nombre);
     }
 
 
     // public List<Productos> findAll() {
-    //     return repositorio;
+    // return repositorio;
     // }
 
     // public Productos findById(long id) {
-    //     for (Productos p : repositorio)
-    //         if (p.getId() == id)
-    //             return p;
-    //     return null;
+    // for (Productos p : repositorio)
+    // if (p.getId() == id)
+    // return p;
+    // return null;
     // }
 
     // public Productos edit(Productos p) {
-    //     int pos = repositorio.indexOf(p);
-    //     if (pos == -1)
-    //         repositorio.add(p);
-    //     else
-    //         repositorio.set(pos, p);
-    //     return p;
+    // int pos = repositorio.indexOf(p);
+    // if (pos == -1)
+    // repositorio.add(p);
+    // else
+    // repositorio.set(pos, p);
+    // return p;
     // }
 
     // public int delete(Long id) {
-    //     Productos p = this.findById(id);
-    //     if (p != null) {
-    //         repositorio.remove(p);
-    //         return 1;
-    //     }
-    //     return 0;
+    // Productos p = this.findById(id);
+    // if (p != null) {
+    // repositorio.remove(p);
+    // return 1;
+    // }
+    // return 0;
     // }
 
     // public List<Productos> findByCategoria(long idCat) {
-    //     ArrayList<Productos> listaPro = new ArrayList<>();
-    //     for (Productos p : repositorio)
-    //         if (p.getIdCategoria() == idCat)
-    //             listaPro.add(p);
-    //     return listaPro;
+    // ArrayList<Productos> listaPro = new ArrayList<>();
+    // for (Productos p : repositorio)
+    // if (p.getIdCategoria() == idCat)
+    // listaPro.add(p);
+    // return listaPro;
     // }
 }

@@ -6,6 +6,7 @@
     <title>Inicio de sesión</title>
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="css/comun.css">
+
 </head>
 
 <body>
@@ -14,15 +15,54 @@
         los principales de stinos turísticos del mundo
         para ayudar a los viajeros a planificar y
         disfrutar mejor de sus viajes.</p>
-    <div th:if="${param.error}">Invalid username and password.</div>
+    <!-- <div th:if="${param.error}">Invalid username and password.</div> -->
     <div th:if="${param.logout}">You have been logged out.</div>
     <form th:action="@{/login}" id="fondo" method="post">
         <input type="text" id="usuario" name="username" placeholder="Correo eléctronico o usuario">
-        <input type="password" id="contrasenha" name="password" placeholder="contraseña">
+        <div id="contrasenha-div">
+            <input type="password" id="contrasenha" name="password" placeholder="contraseña">
+            <button id="toggle-password" type="button">
+                <!-- onclick="togglePassword()" -->
+                <img src="img/candado.svg" />
+            </button>
+        </div>
         <input type="submit" id="inicio" value="Log in" class="botones" />
         <p id="noIni">¿No puedes iniciar sesión?</p>
         <a href="/usuario/new" id="crear" class="botones">Crear Cuenta</a>
     </form>
+    <script>
+        // Función para establecer una cookie
+        function setCookie(name, value, days) {
+            var expires = "";
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + (value || "") + expires + "; path=/";
+        }
+
+        // Función para obtener el valor de una cookie
+        function getCookie(name) {
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+
+        // Ejemplo de uso para establecer una cookie
+        setCookie("miCookie", "Hola, esta es una cookie", 7);
+
+        // Ejemplo de uso para obtener el valor de una cookie
+        var miCookie = getCookie("miCookie");
+        console.log(miCookie); // Imprime el valor de la cookie en la consola
+    </script>
+    <script src="/js/login_.js"></script>
 </body>
+
 
 </html>
