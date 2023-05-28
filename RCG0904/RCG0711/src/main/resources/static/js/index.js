@@ -11,7 +11,5 @@ document.getElementById('searchForm').addEventListener('submit', function (event
         window.location.href = '/lugares/corunha';
     } else if (query.toLowerCase() === 'brasilia') {
         window.location.href = '/lugares/brasilia';
-    } else {
-        // Aquí puedes manejar otras consultas de búsqueda si lo deseas.
-    }
+    } 
 });

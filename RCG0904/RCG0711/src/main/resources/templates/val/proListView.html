@@ -22,7 +22,7 @@
 
 <body>
     <h1>Listado de Productos de un usuario</h1>
-    <h2 th:text="'productos: ' + ${productos.nombre}">Usuario</h2>
+    <h2 th:text="'lugares: ' + ${lugares.nombre}">Usuario</h2>
     <table>
         <thead>
             <tr>
@@ -36,10 +36,10 @@
         <tbody>
             <tr th:each="valoracion : ${listaValoracion}">
                 <!-- <td th:text="${valoracion.productos.id}">Id</td> -->
-                <td th:text="${valoracion.productos.nombre}">nombre</td>
+                <td th:text="${valoracion.lugares.nombre}">nombre</td>
                 <td th:text="${valoracion.puntuacion}">Puntuacion</td>
                 <td th:text="${valoracion.comentario}">Comentario</td>
-                <td><a th:href="@{/valoracion/delete/{idPro}/{idUsu}
+                <td><a th:href="@{/valoracion/delete/{idLu}/{idUsu}
 (idPro=${valoracion.lugares.id},
 idUsu=${valoracion.usuario.id})}">Borrar</a></td>
             </tr>

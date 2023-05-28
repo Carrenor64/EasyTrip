@@ -50,10 +50,10 @@
                 <h1 id="titulo">Lugares</h1>
             </div>
     </div>
-    <h2 class="bg-danger">Categoria</h2>
+    <h2 class="bg-danger">Paises</h2>
     <select id="select" size="3" onChange="changeCategory();">
         <option value="">Todas</option>
-        <option th:each="categoria : ${listaCategorias}" th:value="${categoria.id}" th:text="${categoria.nombre}">
+        <option th:each="pais : ${listaPais}" th:value="${pais.id}" th:text="${pais.nombre}">
         </option>
     </select>
     <br>

@@ -15,11 +15,10 @@ public interface ValoracionServicio {
 
     public void delete(Valoracion valoracion);
 
-    public List<Valoracion> findByProductos(Lugares productos);
+    public List<Valoracion> findByLugares(Lugares lugares);
 
     public List<Valoracion> findByUsuario(Usuario usuario);
 
-    public Valoracion findByProductosAndUsuario(Lugares pro, Usuario usu);
+    public Valoracion findByLugaresAndUsuario(Lugares lu, Usuario usu);
 
-    // public Valoracion findOneValoracion(long id);
 }

@@ -9,9 +9,9 @@ import com.example.demo.domain.Usuario;
 import com.example.demo.domain.Valoracion;
 
 public interface ValoracionRepository extends JpaRepository<Valoracion, Long> {
-    List<Valoracion> findByProductos(Lugares productos);
+    List<Valoracion> findByLugares(Lugares lugares);
 
     List<Valoracion> findByUsuario(Usuario usuario);
 
-    Valoracion findByProductosAndUsuario(Lugares pro, Usuario usu);
+    Valoracion findByLugaresAndUsuario(Lugares lu, Usuario usu);
 }

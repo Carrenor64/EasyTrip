@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 
 <head th:fragment="cabecera">
     <meta charset="UTF-8" />
@@ -31,9 +31,11 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class=" navbar-nav mr-auto">
                     <li id="lugares" class="nav-item"><a id="lugares" class="nav-link active " aria-current="page"
-                            href="/usuario/">Comentarios</a></button></li>
+                            href="/pais/">Paises</a></button></li>
                     <li id="contacta" class="nav-item"><a id="contacta" class="nav-link active " aria-current="page"
                             href="/contacta">Contacta</a></li>
+                    <li id="contacta" class="nav-item"><a id="contacta" class="nav-link active " aria-current="page"
+                            href="/usuario" sec:authorize="hasRole('ADMIN')">Usuarios</a></li>
                 </ul>
             </div>
         </nav>

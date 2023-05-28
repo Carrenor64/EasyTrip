@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.domain.Categoria;
 import com.example.demo.domain.Lugares;
+import com.example.demo.domain.Pais;
 import com.example.demo.repository.LugaresRepository;
 
 @Service
@@ -15,8 +15,8 @@ public class LugaresServiceImplMem implements LugaresService {
     @Autowired
     LugaresRepository repositorio;
 
-    public List<Lugares> findByCategoria(Categoria categoria) {
-        return repositorio.findByCategoria(categoria);
+    public List<Lugares> findByPais(Pais pais) {
+        return repositorio.findByPais(pais);
     }
 
     public Lugares add(Lugares p) {
@@ -45,41 +45,4 @@ public class LugaresServiceImplMem implements LugaresService {
         return repositorio.findByNombre(nombre);
     }
 
-
-    // public List<Productos> findAll() {
-    // return repositorio;
-    // }
-
-    // public Productos findById(long id) {
-    // for (Productos p : repositorio)
-    // if (p.getId() == id)
-    // return p;
-    // return null;
-    // }
-
-    // public Productos edit(Productos p) {
-    // int pos = repositorio.indexOf(p);
-    // if (pos == -1)
-    // repositorio.add(p);
-    // else
-    // repositorio.set(pos, p);
-    // return p;
-    // }
-
-    // public int delete(Long id) {
-    // Productos p = this.findById(id);
-    // if (p != null) {
-    // repositorio.remove(p);
-    // return 1;
-    // }
-    // return 0;
-    // }
-
-    // public List<Productos> findByCategoria(long idCat) {
-    // ArrayList<Productos> listaPro = new ArrayList<>();
-    // for (Productos p : repositorio)
-    // if (p.getIdCategoria() == idCat)
-    // listaPro.add(p);
-    // return listaPro;
-    // }
 }

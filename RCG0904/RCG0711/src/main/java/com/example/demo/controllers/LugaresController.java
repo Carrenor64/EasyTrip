@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.domain.Lugares;
-import com.example.demo.services.CategoriaServicelmplMen;
+import com.example.demo.services.PaisServicelmplMen;
 import com.example.demo.services.LugaresServiceImplMem;
 
 @Controller
@@ -27,48 +27,79 @@ public class LugaresController {
     LugaresServiceImplMem lugaresService;
 
     @Autowired
-    CategoriaServicelmplMen categoriaService;
+    PaisServicelmplMen paisService;
 
     @GetMapping({ "/", "/list", "" })
     public String showList(Model model) {
         model.addAttribute("listaLugares", lugaresService.findAll());
-        model.addAttribute("listaCategorias", categoriaService.findAll());
-        model.addAttribute("categoriaSeleccionada", "Todas");
+        model.addAttribute("listaPais", paisService.findAll());
+        model.addAttribute("paisSeleccionada", "Todas");
         return "lug/lugaresList";
     }
 
-    @GetMapping("/list/{idCat}")
-    public String showListInCategory(@PathVariable Long idCat, Model model) {
+    @GetMapping("/list/{idPais}")
+    public String showListInCategory(@PathVariable Long idPais, Model model) {
         // model.addAttribute("listaProductos", productoService.findByCategoria(idCat));
-        model.addAttribute("listaLugares", lugaresService.findByCategoria(categoriaService.findById(idCat)));
-        model.addAttribute("listaCategorias", categoriaService.findAll());
-        model.addAttribute("categoriaSeleccionada", categoriaService.findById(idCat).getNombre());
+        model.addAttribute("listaLugares", lugaresService.findByPais(paisService.findById(idPais)));
+        model.addAttribute("listaPais", paisService.findAll());
+        model.addAttribute("paisSeleccionada", paisService.findById(idPais).getNombre());
         return "lug/lugaresList";
     }
-
 
     @GetMapping("/{lugar}")
     public String showLugar(@PathVariable String lugar, Model model) {
         Map<String, String> lugarCategoriaMap = new HashMap<>();
         lugarCategoriaMap.put("newyork", "USA");
         lugarCategoriaMap.put("paris", "France");
+        lugarCategoriaMap.put("corunha", "España");
+        lugarCategoriaMap.put("brasilia", "Brasil");
+        lugarCategoriaMap.put("tokio", "Japon");
 
-        String categoria = lugarCategoriaMap.get(lugar);
-        if (categoria != null) {
-            model.addAttribute("lugar", categoriaService.findByNombre(categoria));
+        String pais = lugarCategoriaMap.get(lugar);
+        if (pais != null) {
+            model.addAttribute("lugar", paisService.findByNombre(pais));
             return lugar;
         }
 
-        // Si el lugar no existe en el mapa, puedes manejarlo de alguna otra manera,
-        // como mostrar una página de error.
         return "error";
     }
+
+    // @GetMapping("/new/{lugar}")
+    // public String showNew(@PathVariable String lugar, Model model) {
+    // Lugares lugarExistente = lugaresService.findByNombre(lugar);
+
+    // if (lugarExistente != null) {
+    // model.addAttribute("lugarForm", new Lugares());
+    // model.addAttribute("listaPais", paisService.findAll());
+    // model.addAttribute("lugar", lugarExistente);
+    // return "lug/lugaresNewView";
+    // }
+
+    // return "error";
+    // }
+
+    // @PostMapping("/{lugar}/submit")
+    // public String showNewSubmit(
+    // @Valid @ModelAttribute("lugarForm") Lugares nuevoLugar,
+    // BindingResult bindingResult, @PathVariable String lugar) {
+
+    // Lugares lugarExistente = lugaresService.findByNombre(lugar);
+
+    // if (lugarExistente != null) {
+    // if (bindingResult.hasErrors())
+    // return "newForm";
+    // lugaresService.add(nuevoLugar);
+    // return "redirect:/lugares/list";
+    // }
+
+    // return "error";
+    // }
 
     @GetMapping("/new")
     public String showNew(Model model) {
         // el commandobject del formulario es una instancia de producto vacia
         model.addAttribute("lugarForm", new Lugares());
-        model.addAttribute("listaCategorias", categoriaService.findAll());
+        model.addAttribute("listaPais", paisService.findAll());
         return "lug/lugaresNewView";
     }
 
@@ -82,13 +113,14 @@ public class LugaresController {
         return "redirect:/lugares/list";
     }
 
+    
     @GetMapping("/edit/{id}")
     public String showEditForm(@PathVariable long id, Model model) {
         Lugares lugar = lugaresService.findById(id);
         // el commandobject del formulario es el producto con el id solicitado
         if (lugar != null) {
             model.addAttribute("lugarForm", lugar);
-            model.addAttribute("listaCategorias", categoriaService.findAll());
+            model.addAttribute("listaPais", paisService.findAll());
             return "lug/lugaresEditView";
         }
         // si no lo encuentra vuelve a la página de inicio.

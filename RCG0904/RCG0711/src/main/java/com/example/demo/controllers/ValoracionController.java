@@ -25,15 +25,15 @@ public class ValoracionController {
     @Autowired
     public ValoracionServicio valoracionServicio;
     @Autowired
-    public LugaresService productoService;
+    public LugaresService lugaresService;
     @Autowired
     public UsuarioService usuarioService;
 
     @GetMapping("/pro/{id}") // lista de proyectos de un empleado
     public String showProyectsByEmpl(@PathVariable long id, Model model) {
-        Lugares p = productoService.findById(id);
-        model.addAttribute("listaValoracion", valoracionServicio.findByProductos(p));
-        model.addAttribute("productos", productoService.findById(id));
+        Lugares p = lugaresService.findById(id);
+        model.addAttribute("listaValoracion", valoracionServicio.findByLugares(p));
+        model.addAttribute("lugares", lugaresService.findById(id));
         return "val/proListView";
     }
 
@@ -54,7 +54,7 @@ public class ValoracionController {
     @GetMapping("/new")
     public String showNewProjectEmpl(Model model) {
         model.addAttribute("valoracionForm", new Valoracion());
-        model.addAttribute("listaProductos", productoService.findAll());
+        model.addAttribute("listaLugares", lugaresService.findAll());
         model.addAttribute("listaUsuario", usuarioService.findAll());
         return "val/proUsuNewFormView";
     }

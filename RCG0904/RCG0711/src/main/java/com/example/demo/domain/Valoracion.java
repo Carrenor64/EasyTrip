@@ -26,16 +26,17 @@ public class Valoracion {
     @JsonIgnore
 
     @ManyToOne
-    @JoinColumn(name = "producto_id")
-    private Lugares productos;
+    @JoinColumn(name = "lugares_id")
+    private Lugares lugares;
+    
     @ManyToOne
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
     private String comentario;
 
-    public Valoracion(int puntuacion, Lugares productos,Usuario usuario, String comentario) {
+    public Valoracion(int puntuacion, Lugares lugares,Usuario usuario, String comentario) {
         this.puntuacion = puntuacion;
-        this.productos = productos;
+        this.lugares = lugares;
         this.usuario = usuario;
         this.comentario = comentario;
     }

@@ -26,31 +26,28 @@ public class SecurityConfig {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+    
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
+        http.authorizeHttpRequests(requests -> requests
 
-                .antMatchers("/webjars/**", "/css/**", "/img/**", "/js/**").permitAll() // rec.estaticos
-                .antMatchers("/").permitAll()
-                .antMatchers("/productos").permitAll()
-                .antMatchers("/valoracion/new/**").hasRole("USER")
-                .antMatchers("/productos/**").hasAnyRole("MANAGER", "ADMIN")
-                
-                .antMatchers("/categorias/**").hasAnyRole("MANAGER", "ADMIN")
-                .antMatchers("/valoracion/**").hasAnyRole("MANAGER", "ADMIN")
-                .antMatchers("/usuario/new/**").permitAll()
-                .antMatchers("/usuario/**").hasRole("ADMIN")
-                .antMatchers("/new/**").hasRole("ADMIN")
-                .antMatchers("/edit/**").hasRole("ADMIN")
-                .antMatchers("/delete/**").hasRole("ADMIN")
-                .anyRequest().authenticated()
-                .and()
-                .formLogin().loginPage("/login").permitAll()
-                .and()
-                .logout().logoutUrl("/logout").logoutSuccessUrl("/login").permitAll()
-                .and()
-                .exceptionHandling().accessDeniedPage("/accessError");
+        .antMatchers("/webjars/**", "/css/**", "/img/**", "/js/**").permitAll() // Recursos estáticos
+        .antMatchers("/", "/lugares").permitAll()
+        .antMatchers("/valoracion/new/**").hasRole("USER")
+        .antMatchers("/valoracion/**").hasAnyRole("MANAGER", "ADMIN")
+        .antMatchers("/usuario/new/**").permitAll()
+        .antMatchers("/pais").permitAll()
+        .antMatchers("/pais/new/**").hasRole("ADMIN")
+        .antMatchers("/lugares/new/**").hasRole("ADMIN")
+
+        .antMatchers("/usuario/**", "/new/**", "/edit/**", "/delete/**").hasRole("ADMIN")
+        .anyRequest().authenticated()
+        .and())
+        .formLogin(login -> login.loginPage("/login").permitAll())
+        .logout(logout -> logout.logoutUrl("/logout").logoutSuccessUrl("/login").permitAll())
+        .exceptionHandling(handling -> handling.accessDeniedPage("/accessError"));
+        
         return http.build();
     }
 }

@@ -35,8 +35,8 @@
         </thead>
         <tbody>
             <tr th:each="valoracion : ${listaValoracion}">
-                <td th:text="${valoracion.productos.id}">Id</td>
-                <td th:text="${valoracion.productos.nombre}">nombre</td>
+                <td th:text="${valoracion.lugares.id}">Id</td>
+                <td th:text="${valoracion.lugares.nombre}">nombre</td>
                 <td th:text="${valoracion.puntuacion}">Puntuacion</td>
                 <td th:text="${valoracion.comentario}">Comentario</td>
                 <td><a th:href="@{/valoracion/delete/{id}

@@ -35,16 +35,16 @@ public class ValoracionServiceImpl implements ValoracionServicio {
         repositorio.delete(valoracion);
     }
 
-    public List<Valoracion> findByProductos(Lugares productos) {
-        return repositorio.findByProductos(productos);
+    public List<Valoracion> findByLugares(Lugares lugares) {
+        return repositorio.findByLugares(lugares);
     }
 
     public List<Valoracion> findByUsuario(Usuario usuario) {
         return repositorio.findByUsuario(usuario);
     }
 
-    public Valoracion findByProductosAndUsuario(Lugares pro, Usuario usu) {
-        return repositorio.findByProductosAndUsuario(pro, usu);
+    public Valoracion findByLugaresAndUsuario(Lugares lu, Usuario usu) {
+        return repositorio.findByLugaresAndUsuario(lu, usu);
     }
 
     // public Valoracion findOneValoracion(long id) {

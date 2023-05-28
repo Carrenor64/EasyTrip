@@ -3,6 +3,9 @@ package com.example.demo.controllers;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -20,17 +23,32 @@ import com.example.demo.services.UsuarioService;
 public class UsuarioController {
     @Autowired
     public UsuarioService usuarioService;
-    
+
     @GetMapping({ "/", "/list" })
     public String showList(Model model) {
-        model.addAttribute("listaUsuario", usuarioService.findAll());
-        return "usu/usuariolistView";
+    model.addAttribute("listaUsuario", usuarioService.findAll());
+    return "usu/usuariolistView";
     }
 
-    @GetMapping("/new") 
-    public String showNew(Model model) { 
-    model.addAttribute("usuarioForm", new Usuario()); 
-    return "usu/usuarioNewFormView"; 
+    // public String showList(Model model) {
+    //     model.addAttribute("listaUsuario", usuarioService.findAll());
+
+    //     // Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+    //     // boolean esAdministrador = authentication.getAuthorities().stream()
+    //     //         .map(GrantedAuthority::getAuthority)
+    //     //         .anyMatch(role -> role.equals("ADMIN"));
+
+    //     // model.addAttribute("esAdministrador", esAdministrador);
+    //     // // Asegúrate de que este string coincide con el nombre del
+    //     // // rol de administrador
+
+    //     return "usu/usuariolistView";
+    // }
+
+    @GetMapping("/new")
+    public String showNew(Model model) {
+        model.addAttribute("usuarioForm", new Usuario());
+        return "usu/usuarioNewFormView";
     }
 
     @PostMapping("/new/submit")
@@ -43,13 +61,13 @@ public class UsuarioController {
         nuevoUsuario = usuarioService.add(nuevoUsuario);
         return "redirect:/";
     }
+
     @GetMapping("/delete/{id}")
     public String showDelete(@PathVariable long id) {
         usuarioService.delete(usuarioService.findById(id));
         return "redirect:/usuario/list";
     }
 
-    
     @GetMapping("/edit/{id}")
     public String showEditForm(@PathVariable long id, Model model) {
         Usuario usuario = usuarioService.findById(id);
@@ -71,4 +89,5 @@ public class UsuarioController {
         usuarioService.edit(usuario);
         return "redirect:/usuario/list";
     }
+
 }

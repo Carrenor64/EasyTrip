@@ -32,25 +32,25 @@ public class Lugares {
     @ToString.Exclude
     @ManyToOne
     @OnDelete(action = OnDeleteAction.CASCADE)
-    private Categoria categoria;
+    private Pais pais;
 
     @ToString.Exclude
-    @OneToMany(mappedBy = "productos", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "lugares", cascade = CascadeType.REMOVE)
     private List<Valoracion> valoracion = new ArrayList<>();
 
     String ubicacion;
     String nombre;
     String descripcion;
     double precio;
-    long idCategoria;
+    long idPais;
 
     public Lugares(String ubicacion, String nombre, String descripcion, double precio,
-            Categoria categoria) {
+            Pais pais) {
         this.ubicacion = ubicacion;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.precio = precio;
-        this.categoria = categoria;
+        this.pais = pais;
 
     }
 }

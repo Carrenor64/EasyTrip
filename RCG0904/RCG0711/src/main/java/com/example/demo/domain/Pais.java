@@ -21,14 +21,14 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(of = "id")
 
 @Entity
-public class Categoria {
+public class Pais {
     @Id
     @GeneratedValue
     private Long id;
     private String nombre;
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE, mappedBy = "categoria") // orphanRemoval = true
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE, mappedBy = "pais") // orphanRemoval = true
     private List<Lugares> productos = new ArrayList<>();
-    public Categoria(String nombre) {
+    public Pais(String nombre) {
         this.nombre = nombre;
     }
 

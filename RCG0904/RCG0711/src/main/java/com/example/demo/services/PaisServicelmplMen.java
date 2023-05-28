@@ -5,35 +5,35 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.domain.Categoria;
-import com.example.demo.repository.CategoriaRepository;
+import com.example.demo.domain.Pais;
+import com.example.demo.repository.PaisRepository;
 
 @Service
-public class CategoriaServicelmplMen implements CategoriaService {
+public class PaisServicelmplMen implements PaisService {
     @Autowired
-    CategoriaRepository repositorio;
+    PaisRepository repositorio;
 
-    public Categoria add(Categoria e) {
+    public Pais add(Pais e) {
         return repositorio.save(e);
     }
 
-    public List<Categoria> findAll() {
+    public List<Pais> findAll() {
         return repositorio.findAll();
     }
 
-    public Categoria findById(long id) {
+    public Pais findById(long id) {
         return repositorio.findById(id).orElse(null);
     }
 
-    public Categoria edit(Categoria d) {
+    public Pais edit(Pais d) {
         return repositorio.save(d);
     }
 
-    public void delete(Categoria d) {
+    public void delete(Pais d) {
         repositorio.delete(d); // también es cómodo deleteById(id)
     }
 
-    public Categoria findByNombre(String nombre) {
+    public Pais findByNombre(String nombre) {
         return repositorio.findByNombre(nombre);
     }
 }

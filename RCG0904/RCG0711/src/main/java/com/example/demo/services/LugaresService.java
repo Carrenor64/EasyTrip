@@ -2,8 +2,8 @@ package com.example.demo.services;
 
 import java.util.List;
 
-import com.example.demo.domain.Categoria;
 import com.example.demo.domain.Lugares;
+import com.example.demo.domain.Pais;
 
 public interface LugaresService {
     public Lugares add(Lugares p);
@@ -11,6 +11,6 @@ public interface LugaresService {
     public Lugares findById(long id);
     public Lugares edit(Lugares p);
     public void delete(Long id);
-    public List<Lugares> findByCategoria(Categoria categoria);
+    public List<Lugares> findByPais(Pais pais);
     public Lugares findByNombre(String nombre);
 }
