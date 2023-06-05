@@ -29,7 +29,7 @@ public class ValoracionController {
     @Autowired
     public UsuarioService usuarioService;
 
-    @GetMapping("/pro/{id}") // lista de proyectos de un empleado
+    @GetMapping("/lu/{id}") // lista de proyectos de un empleado
     public String showProyectsByEmpl(@PathVariable long id, Model model) {
         Lugares p = lugaresService.findById(id);
         model.addAttribute("listaValoracion", valoracionServicio.findByLugares(p));

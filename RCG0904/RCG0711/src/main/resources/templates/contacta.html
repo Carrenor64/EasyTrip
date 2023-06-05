@@ -1,12 +1,69 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"> 
+<html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css/comun.css">
+    <link rel="stylesheet" href="/css/comun.css">
+    <style>
+        /* body {
+            background-color: #3C486B;
+            font-family: Arial, sans-serif;
+        } */
+
+        h1 {
+            text-align: center;
+            color: #F9D949;
+            margin-top: 20px;
+        }
+
+        div ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        div ul li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        a {
+            color: #F45050;
+            text-decoration: none;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+        form {
+            background-color: #F9D949;
+            padding: 20px;
+            width: 80%;
+            margin: 0 auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form label {
+            display: block;
+            color: #F45050;
+            margin-top: 10px;
+        }
+
+        form input[type="submit"] {
+            background-color: #F45050;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+    </style>
 </head>
+
 <body>
     <h1>Contacta</h1>
     <div>
@@ -17,29 +74,29 @@
             <li><a href="/quienes-somos">Quienes somos?</a></li>
         </ul>
     </div>
-    <div>
-        <img src="img/contacto.jpg" width="40%" height="40%"/>
-    </div>
-    <form action="#" method="post" th:action="@{/contacta/submit}"
-    th:object="${formInfo}">
-    <label>Nombre:
-        <input type="text" id="nombre" th:field="*{nombre}">
-    </label><br>
-    <label>Email:
-        <input type="text" id="email" th:field="*{email}">
-    </label><br>
-    <label for="lista">Motivo:</label>
+    <!-- <div>
+        <img src="img/contacto.jpg" width="40%" height="40%" />
+    </div> -->
+    <form action="#" method="post" th:action="@{/contacta/submit}" th:object="${formInfo}">
+        <label>Nombre:
+            <input type="text" id="nombre" th:field="*{nombre}">
+        </label><br>
+        <label>Email:
+            <input type="text" id="email" th:field="*{email}">
+        </label><br>
+        <label for="lista">Motivo:</label>
         <select name="lista" id="lista">
-        <option value="queja">Queja</option>
-        <option value="consulta">Consulta</option>
-        <option value="otros">Otros</option>
-    </select><br>
-    <label> Aceptar Condiciones<input type="checkbox" id="lista" th:field="*{aceptarCondiciones}">
-    </label><br>
-    <label>Comentario:
-        <textarea rows="5" name="comentarios" cols="10" th:field="*{comentario}"></textarea>
-    </label><br>
-    <input type="submit" value="Enviar">
+            <option value="queja">Queja</option>
+            <option value="consulta">Consulta</option>
+            <option value="otros">Otros</option>
+        </select><br>
+        <label> Aceptar Condiciones<input type="checkbox" id="lista" th:field="*{aceptarCondiciones}">
+        </label><br>
+        <label>Comentario:
+            <textarea rows="5" name="comentarios" cols="10" th:field="*{comentario}"></textarea>
+        </label><br>
+        <input type="submit" value="Enviar">
     </form>
 </body>
+
 </html>

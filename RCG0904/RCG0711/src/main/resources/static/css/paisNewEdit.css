@@ -1,0 +1,43 @@
+#easy {
+    color: #F45050;
+    padding-left: 10px;
+}
+
+h1 {
+    text-align: center;
+    color: #F9D949;
+}
+
+#borde {
+    border-radius: 10px;
+    margin: auto;
+    display: grid;
+    place-items: center;
+    border: 1px solid;
+    height: 250px;
+    width: 450px;
+    background-color: #F9D949;
+}
+
+label {
+    color: #F45050;
+    font-weight: bolder;
+}
+
+input {
+    border-radius: 10px;
+    box-sizing: border-box;
+    width: 350px;
+    height: 55px;
+    background: #F0F0F0;
+    border: 1px solid #000000;
+    border-radius: 12px;
+}
+
+#enviar {
+    height: 50px;
+    background-color: #F45050;
+    border-radius: 12px;
+    font-style: bold;
+    font-size: 15px;
+}

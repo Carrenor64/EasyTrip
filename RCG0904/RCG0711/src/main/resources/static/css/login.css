@@ -32,6 +32,7 @@ h1 {
     color: #FFFFFF;
 }
 
+
 #fondo {
     position: absolute;
     width: 430px;
@@ -40,9 +41,6 @@ h1 {
     top: 140px;
     background: #F9D949;
     border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 #usuario {
@@ -55,10 +53,7 @@ h1 {
     background: #F0F0F0;
     border: 1px solid #000000;
     border-radius: 12px;
-}
-
-::placeholder {
-    padding-left: 10px;
+    padding-left: 20px;
 }
 
 #inicio {
@@ -92,6 +87,7 @@ h1 {
 
 }
 
+
 #crear {
     background-color: #F0F0F0;
     border: 1px solid;
@@ -109,7 +105,6 @@ h1 {
 #contrasenha-div {
     display: flex;
     align-items: center;
-    /* Alinea verticalmente el contenido */
     justify-content: space-between;
     position: absolute;
     width: 350px;
@@ -120,11 +115,11 @@ h1 {
 #contrasenha {
     box-sizing: border-box;
     width: 280px;
-    /* Ajustar según sea necesario */
     height: 55px;
     background: #F0F0F0;
     border: 1px solid #000000;
     border-radius: 12px;
+    padding-left: 20px;
 }
 
 #toggle-password {
@@ -132,30 +127,31 @@ h1 {
     border: 1px solid;
     border-radius: 12px;
     width: 50px;
-    /* Ajustar según sea necesario */
     height: 40px;
-    /* Ajustar según sea necesario */
     color: #3C486B;
     font-weight: bold;
     cursor: pointer;
     display: flex;
     align-items: center;
-    /* Alinea verticalmente el contenido del botón */
     justify-content: center;
-    /* Alinea horizontalmente el contenido del botón */
 }
 
 #toggle-password img {
     width: 50%;
-    /* ajusta este valor */
     height: 50%;
-    /* ajusta este valor */
 }
+
 
 @media (max-width: 1000px) {
 
     h1,
     #informacion {
         display: none;
+    }
+
+    #responsive {
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }

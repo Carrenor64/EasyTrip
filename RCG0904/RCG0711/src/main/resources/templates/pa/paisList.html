@@ -6,59 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        body {
-            background-color: #F2F2F2;
-            font-family: Arial, sans-serif;
-        }
-
-        h1 {
-            text-align: center;
-            color: #3C486B;
-            margin-top: 20px;
-        }
-
-        h2 {
-            color: #3C486B;
-            margin-top: 10px;
-        }
-
-        table {
-            margin: 20px auto;
-            border-collapse: collapse;
-            width: 80%;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        th,
-        td {
-            padding: 10px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #3C486B;
-            color: #fff;
-        }
-
-        tbody tr:nth-child(even) {
-            background-color: #F2F2F2;
-        }
-
-        a {
-            display: block;
-            text-align: center;
-            margin-top: 10px;
-            color: #3C486B;
-            text-decoration: none;
-        }
-    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/comun.css">
+    <link rel="stylesheet" href="/css/paisLista.css">
 </head>
 
 <body>
+    <div class="container-fluid">
+        <nav class=" navbar navbar-expand-lg navbar-light ">
+            <a class="navbar-brand" id="easy" href="/">EasyTrip</a>
+        </nav>
+    </div>
     <h1>Listado de Pais</h1>
-    <h2>Pais: <span th:text="${paisSeleccionada}">default</h2>
     <table>
         <thead>
             <tr>
@@ -72,11 +32,23 @@
             </tr>
         </tbody>
     </table>
-    <a href="/">Inicio</a><br />
-    <!-- <a href="/pais/new">Nueva pais</a><br /> -->
-    <div sec:authorize="hasRole('ADMIN')">
-        <a href="/pais/new">Nueva pais</a>
-    </div>
+    <a href="/pais/new" sec:authorize="hasRole('ADMIN')">Nueva pais</a>
+    <footer id="cerrarSesion" class="card text-center">
+        <div class="card-body">
+            <form id="boton" th:action="@{/logout}" method="post">
+                <input type="submit" class="btn" value="Cerrar sesión">
+            </form>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
+        integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

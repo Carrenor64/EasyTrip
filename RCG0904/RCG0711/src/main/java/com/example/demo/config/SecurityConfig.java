@@ -35,7 +35,7 @@ public class SecurityConfig {
         .antMatchers("/webjars/**", "/css/**", "/img/**", "/js/**").permitAll() // Recursos estáticos
         .antMatchers("/", "/lugares").permitAll()
         .antMatchers("/valoracion/new/**").hasRole("USER")
-        .antMatchers("/valoracion/**").hasAnyRole("MANAGER", "ADMIN")
+        .antMatchers("/valoracion/**").permitAll()
         .antMatchers("/usuario/new/**").permitAll()
         .antMatchers("/pais").permitAll()
         .antMatchers("/pais/new/**").hasRole("ADMIN")

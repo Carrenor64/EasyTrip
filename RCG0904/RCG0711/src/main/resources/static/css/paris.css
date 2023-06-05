@@ -1,3 +1,38 @@
-* {
-    background-color: #3C486B;
+#titulo {
+    color: #F9D949;
+    text-align: center;
+    margin: auto;
+}
+
+#easy {
+    color: #F45050;
+    padding-left: 10px;
+}
+
+#cerrarSesion {
+    background-color: #F9D949;
+    color: #3C486B;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+table {
+    border: 1px solid;
+}
+
+td,
+th {
+    border: 1px solid;
+}
+a[href="/lugares/new"]:not([class]) {
+    display: inline-block;
+    margin-top: 20px;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

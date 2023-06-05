@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -30,6 +32,8 @@ public class Usuario {
     String fechaNacimiento;
     String password;
     Rol rol;
+    @JsonIgnore
+
     @ToString.Exclude
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
     private List<Valoracion> valoracion = new ArrayList<>();

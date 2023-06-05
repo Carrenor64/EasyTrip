@@ -5,11 +5,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import com.example.demo.domain.Lugares;
-import com.example.demo.domain.Pais;
-import com.example.demo.domain.Rol;
-import com.example.demo.domain.Usuario;
-import com.example.demo.domain.Valoracion;
 import com.example.demo.services.LugaresServiceImplMem;
 import com.example.demo.services.PaisServicelmplMen;
 import com.example.demo.services.UsuarioService;

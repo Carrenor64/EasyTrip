@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/css/comun.css">
     <style>
         table {
             border: 1px solid;
@@ -22,11 +23,10 @@
 
 <body>
     <h1>Listado de Productos de un usuario</h1>
-    <h2 th:text="'lugares: ' + ${lugares.nombre}">Usuario</h2>
+    <h2 th:text="'lugar: ' + ${lugares.nombre}">Usuario</h2>
     <table>
         <thead>
             <tr>
-                <!-- <th>ID</th> -->
                 <th>Nombre</th>
                 <th>Puntuacion</th>
                 <th>Comentario</th>
@@ -35,12 +35,11 @@
         </thead>
         <tbody>
             <tr th:each="valoracion : ${listaValoracion}">
-                <!-- <td th:text="${valoracion.productos.id}">Id</td> -->
-                <td th:text="${valoracion.lugares.nombre}">nombre</td>
+                <td th:text="${valoracion.lugar.nombre}">nombre</td>
                 <td th:text="${valoracion.puntuacion}">Puntuacion</td>
                 <td th:text="${valoracion.comentario}">Comentario</td>
-                <td><a th:href="@{/valoracion/delete/{idLu}/{idUsu}
-(idPro=${valoracion.lugares.id},
+                <td><a th:href="@{/valoracion/delete/{idPro}/{idUsu}
+(idPro=${valoracion.lugar.id},
 idUsu=${valoracion.usuario.id})}">Borrar</a></td>
             </tr>
         </tbody>

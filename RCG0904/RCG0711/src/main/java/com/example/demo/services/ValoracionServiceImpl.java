@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.example.demo.domain.Lugares;
 import com.example.demo.domain.Usuario;
 import com.example.demo.domain.Valoracion;
+import com.example.demo.exceptions.ValoracionNotFound;
 import com.example.demo.repository.ValoracionRepository;
 
 @Service
@@ -35,21 +36,22 @@ public class ValoracionServiceImpl implements ValoracionServicio {
         repositorio.delete(valoracion);
     }
 
-    public List<Valoracion> findByLugares(Lugares lugares) {
-        return repositorio.findByLugares(lugares);
+    public List<Valoracion> findByLugares(Lugares productos) {
+        return repositorio.findByLugares(productos);
     }
 
     public List<Valoracion> findByUsuario(Usuario usuario) {
         return repositorio.findByUsuario(usuario);
     }
 
-    public Valoracion findByLugaresAndUsuario(Lugares lu, Usuario usu) {
-        return repositorio.findByLugaresAndUsuario(lu, usu);
+    public Valoracion findByLugaresAndUsuario(Lugares pro, Usuario usu) {
+        return repositorio.findByLugaresAndUsuario(pro, usu);
     }
 
-    // public Valoracion findOneValoracion(long id) {
-    //     Valoracion valoracion = repositorio.findById(id)
-    //             .orElseThrow(() -> new ValoracionNotFound(id));
-    //     return valoracion;
-    // }
+    public Valoracion findOneValoracion(long id) {
+        Valoracion valoracion = repositorio.findById(id)
+                .orElseThrow(() -> new ValoracionNotFound(id));
+        return valoracion;
+    }
+
 }

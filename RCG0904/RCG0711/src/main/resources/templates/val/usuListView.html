@@ -1,25 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        table {
+    <link rel="stylesheet" href="/css/comun.css">
+    <!-- <style>
+        table{
             border: 1px solid;
             border-collapse: collapse;
         }
-
-        td,
-        th {
+        td, th{
             border: 1px solid;
             padding: 10px;
         }
-    </style>
+    </style> -->
 </head>
-
 <body>
     <h1>Listado de Productos de un usuario</h1>
     <h2 th:text="'usuario: ' + ${usuario.nombre}">Usuario</h2>
@@ -35,8 +32,8 @@
         </thead>
         <tbody>
             <tr th:each="valoracion : ${listaValoracion}">
-                <td th:text="${valoracion.lugares.id}">Id</td>
-                <td th:text="${valoracion.lugares.nombre}">nombre</td>
+                <td th:text="${valoracion.productos.id}">Id</td>
+                <td th:text="${valoracion.productos.nombre}">nombre</td>
                 <td th:text="${valoracion.puntuacion}">Puntuacion</td>
                 <td th:text="${valoracion.comentario}">Comentario</td>
                 <td><a th:href="@{/valoracion/delete/{id}
@@ -47,5 +44,4 @@
     <a href="/">Inicio</a><br />
     <a th:href="@{/valoracion/new}">Nueva relación producto - usuario</a><br />
 </body>
-
 </html>

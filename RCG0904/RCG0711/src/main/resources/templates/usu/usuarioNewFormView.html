@@ -7,58 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/css/comun.css">
+    <link rel="stylesheet" href="/css/usuarioNewEdit.css">
+
     <style>
-        h1 {
-            text-align: center;
-            color: #F45050;
-        }
 
-        div {
-            border-radius: 10px;
-            margin: auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border: 1px solid;
-            height: 500px;
-            width: 450px;
-            background-color: #F9D949;
-        }
-
-        label {
-            color: #F45050;
-            font-weight: bolder;
-        }
-        legend{
-            text-align: center;
-            font-size: 20px;
-            color:  #3C486B;
-            font-weight: bold;
-        }
-
-        input {
-            border-radius: 10px;
-            box-sizing: border-box;
-            width: 350px;
-            height: 55px;
-            background: #F0F0F0;
-            border: 1px solid #000000;
-            border-radius: 12px;
-        }
-
-        #enviar {
-            height: 50px;
-            background: #F45050;
-            border-radius: 12px;
-            color: white;
-            font-style: bold;
-            font-size: 15px;
-        }
-
-        #roles {
-            width: 50px;
-            height: 50px;
-        }
     </style>
 </head>
 
@@ -67,7 +19,7 @@
     <h1>EasyTrip</h1>
     <div>
         <form method="post" action="#" th:action="@{/usuario/new/submit}" th:object="${usuarioForm}">
-           <legend>Nuevo Usuario</legend>
+            <legend>Nuevo Usuario</legend>
             <input type="hidden" id="id" th:field="*{id}" /><br />
             <label>Nombre: <br /><br>
                 <input type="text" id="nombre" th:field="*{nombre}" /></label><br /><br>
@@ -75,9 +27,10 @@
                 <input type="text" id="fechaNacimiento" th:field="*{fechaNacimiento}" /></label><br /><br>
             <label>Contraseña: <br /><br>
                 <input type="text" id="password" th:field="*{password}" /></label><br /><br>
-            Rol:<br />
             <div id="roles" th:each="rol : ${T(com.example.demo.domain.Rol).values()}">
-                <input type="radio" name="button1" th:value="${rol}" th:text="${rol}" th:field="*{rol}" />
+                Rol:<br />
+                <input type="radio" name="button1" th:value="${rol}" th:text="${rol}" th:field="*{rol}"
+                    th:checked="${rol.name() == 'USER'}" />
             </div>
             <input type="submit" id="enviar" value="enviar">
         </form>

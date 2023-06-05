@@ -36,4 +36,7 @@ public class PaisServicelmplMen implements PaisService {
     public Pais findByNombre(String nombre) {
         return repositorio.findByNombre(nombre);
     }
+
+    public void save(Pais pais) {
+    }
 }

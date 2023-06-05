@@ -28,13 +28,12 @@ public class Valoracion {
     @ManyToOne
     @JoinColumn(name = "lugares_id")
     private Lugares lugares;
-    
     @ManyToOne
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
     private String comentario;
 
-    public Valoracion(int puntuacion, Lugares lugares,Usuario usuario, String comentario) {
+    public Valoracion(int puntuacion, Lugares lugares, Usuario usuario, String comentario) {
         this.puntuacion = puntuacion;
         this.lugares = lugares;
         this.usuario = usuario;

@@ -79,8 +79,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
     <link rel="stylesheet" href="/css/newyork.css">
     <link rel="stylesheet" href="/css/comun.css">
@@ -88,19 +88,11 @@
 </head>
 
 <body>
-    <div class="container-fluid">
-        <nav class=" navbar navbar-expand-lg navbar-light ">
-            <a class="navbar-brand" id="easy" href="/">EasyTrip</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <h1 id="titulo">New York</h1>
-            </div>
-    </div>
-
+    <nav class=" navbar navbar-expand-lg navbar-light ">
+        <a class="navbar-brand" id="easy" href="/">EasyTrip</a>
+    </nav>
+    <h1 id="titulo">New York</h1>
     <br>
     <br>
     <table>
@@ -110,38 +102,45 @@
                 <th>Nombre</th>
                 <th>Descripción</th>
                 <th>Precio</th>
-                <th>Editar</th>
-                <th>Borrar</th>
+                <th sec:authorize="hasRole('ADMIN')">Editar</th>
+                <th sec:authorize="hasRole('ADMIN')">Borrar</th>
                 <th>Valoraciones</th>
         </thead>
         <tbody>
-            <!-- <tr th:each="lugar_:${lugar.productos}" th:if="${lugar.productos % 4 == 0}">
-
+            <tr th:each="lugar_:${lugar.productos}">
                 <td th:text="${lugar_.ubicacion}">ubicacion</td>
                 <td id="nombreSitio" th:text="${lugar_.nombre}">nombre</td>
-                <td id="nombreSitio" th:text="${lugar_.valoraciones}">Valoraciones</td> 
+                <td th:text="${lugar_.descripcion}">Descripcion <textarea cols="30" rows="10"></textarea></td>
+                <td th:text="${lugar_.Precio}">0</td>
+                <td sec:authorize="hasRole('ADMIN')"><a th:href="@{/lugares/edit/{id}(id=${lugar_.id})}">Editar</a></td>
+                <td sec:authorize="hasRole('ADMIN')"><a th:href="@{/lugares/delete/{id}(id=${lugar_.id})}">Borrar</a>
+                </td>
+                <td><a th:href="@{/valoracion/pro/{id}(id=${lugar_.id})}">Valoracion:
+                        <span th:text="${lugar_.valoracion.size}">Id</span>
+                    </a></td>
 
-            </tr> -->
-            <tr th:each="lugar_, stat : ${lugar.productos}" th:if="${stat.index % 4 == 0}">
-                <td th:text="${lugar_.ubicacion}">ubicacion</td>
-                <td id="nombreSitio" th:text="${lugar_.nombre}">nombre</td>
-                <!-- <td id="nombreSitio" th:text="${lugar_.valoraciones}">Valoraciones</td> -->
             </tr>
 
         </tbody>
     </table>
-    <a href="/">Inicio</a><br />
-    <a href="/lugares/ne/newyork">Nuevo Lugar</a><br />
-    <!-- <a href="/usuario/">Gestión de usuarios</a> -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+    <!-- <a href="/">Inicio</a><br /> -->
+    <a href="/lugares/new" sec:authorize="hasRole('ADMIN')">Nuevo Lugar</a>
+    <div class="card text-center" id="cerrarSesion">
+        <div class="card-body">
+            <form id="boton" th:action="@{/logout}" method="post">
+                <input type="submit" class="btn" value="Cerrar sesión">
+            </form>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
+    integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
+    crossorigin="anonymous"></script>
 
 </body>
 

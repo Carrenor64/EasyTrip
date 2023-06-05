@@ -6,19 +6,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/css/comun.css">
+    <link rel="stylesheet" href="/css/usuarioNewEdit.css">
+
 </head>
 
 <body>
-    <form method="post" action="#" th:action="@{/usuario/edit/submit}" th:object="${usuarioForm}">
-        <label>Nombre: <input type="text" id="nombre" th:field="*{nombre}" /></label><br />
-        <label>Fecha de Registro: <input type="text" id="fechaNacimiento" th:field="*{fechaNacimiento}" /></label><br />
-        <label>Contraseña: <input type="text" id="password" th:field="*{password}" /></label><br />
-        Rol:<br />
-        <div th:each="rol : ${T(com.example.demo.domain.Rol).values()}">
-            <input type="radio" name="button1" th:value="${rol}" th:text="${rol}" th:field="*{rol}" />
-        </div>
-        <input type="submit" value="enviar">
-    </form>
+    <h1>EasyTrip</h1>
+    <div>
+        <form method="post" action="#" th:action="@{/usuario/new/submit}" th:object="${usuarioForm}">
+            <legend>Nuevo Usuario</legend>
+            <input type="hidden" id="id" th:field="*{id}" /><br />
+            <label>Nombre: <br /><br>
+                <input type="text" id="nombre" th:field="*{nombre}" /></label><br /><br>
+            <label>Fecha de Registro: <br /><br>
+                <input type="text" id="fechaNacimiento" th:field="*{fechaNacimiento}" /></label><br /><br>
+            <label>Contraseña: <br /><br>
+                <input type="text" id="password" th:field="*{password}" /></label><br /><br>
+            <div id="roles" th:each="rol : ${T(com.example.demo.domain.Rol).values()}">
+                Rol:<br />
+                <input type="radio" name="button1" th:value="${rol}" th:text="${rol}" th:field="*{rol}"
+                    th:checked="${rol.name() == 'USER'}" />
+            </div>
+            <input type="submit" id="enviar" value="enviar">
+        </form>
+    </div>
 </body>
 
 </html>
