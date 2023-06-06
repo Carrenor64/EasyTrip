@@ -109,7 +109,7 @@ public class LugaresController {
             model.addAttribute("listaPais", paisService.findAll());
             return "lug/lugaresEditView";
         }
-        return "redirect:/lugares";
+        return "redirect:/lugares/list";
     }
 
     @PostMapping("/edit/submit")

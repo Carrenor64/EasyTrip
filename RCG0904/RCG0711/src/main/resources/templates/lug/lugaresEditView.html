@@ -18,13 +18,14 @@
     </nav>
     <h1>Editar Lugar</h1>
     <div id="borde">
-        <form method="post" action="#" th:action="@{/lugares/new/submit}" th:object="${lugarForm}">
+        <form method="post" action="#" th:action="@{/lugares/edit/submit}" th:object="${lugarForm}">
             <label>País:
-                <select name="pais" th:field="*{idPais}">
+                <select name="pais">
                     <option th:each="pa : ${listaPais}" th:value="${pa.id}" th:text="${pa.nombre}">
                     </option>
                 </select>
             </label><br />
+            <input type="hidden" id="id" th:field="*{id}" /><br />
             <label>Ubicacion:<br><input type="text" id="ubicacion" th:field="*{ubicacion}" /></label><br />
             <label>Nombre <br><input type="text" id="nombre" th:field="*{nombre}" /></label><br />
             <label>Descripcion <br><input type="text" id="descripcion" th:field="*{descripcion}" /></label><br />
