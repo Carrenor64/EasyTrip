@@ -1,5 +1,5 @@
 <!-- <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 
 <head>
     <meta charset="UTF-8">
@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="css/comun.css"> -->
-<!-- <link rel="stylesheet" href="css/newyork.css">
+    <link rel="stylesheet" href="css/comun.css">
+    <link rel="stylesheet" href="css/newyork.css">
 
     <style>
         table {
@@ -20,9 +20,10 @@
 
         .row {
             border: 1px solid;
-           
+
         }
-        .col-sm-3{
+
+        .col-sm-3 {
             border: 1px solid;
             width: 100px;
             height: 100px;
@@ -38,21 +39,22 @@
         </div>
 
         <div class="container-fluid">
-            <div class="row">
+            <div class="row" th:each="lugar_:${lugar.productos}">
+                <div class="col-sm-3"> <span>Ubicación:</span>
+                    <span th:text="${lugar_.ubicacion}">ubicacion</span>
+                    <span>Nombre:</span>
+                    <span id="nombreSitio" th:text="${lugar_.nombre}">nombre</span>
+                    <span>Descripción:</span>
+                    <span th:text="${lugar_.descripcion}">Descripcion</span>
+                    <span>Precio:</span>
+                    <span th:text="${lugar_.Precio}">0</span>
+                    <a th:href="@{/lugares/edit/{id}(id=${lugar_.id})}" sec:authorize="hasRole('ADMIN')">Editar</a>
+                    <a th:href="@{/lugares/delete/{id}(id=${lugar_.id})}">Borrar</a>
+                    <a th:href="@{/valoracion/pro/{id}(id=${lugar_.id})}">
+                        Valoración: <span th:text="${lugar_.valoracion.size}">Id</span>
+                    </a>
+                </div>
                 <div class="col-sm-3">Hola</div>
-                <div class="col-sm-3">Hola</div>
-                <div class="col-sm-3"></div>
-                <div class="col-sm-3"></div>
-            </div>
-            <div class="row">
-                <div class="col-sm-3">Hola</div>
-                <div class="col-sm-3"></div>
-                <div class="col-sm-3"></div>
-                <div class="col-sm-3"></div>
-            </div>
-            <div class="row">
-                <div class="col-sm-3">Hola</div>
-                <div class="col-sm-3"></div>
                 <div class="col-sm-3"></div>
                 <div class="col-sm-3"></div>
             </div>
@@ -71,6 +73,9 @@
 
 </html> -->
 
+
+<!-- --------------------------------------------- -->
+
 <!DOCTYPE html>
 <html xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 
@@ -78,13 +83,48 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-
     <link rel="stylesheet" href="/css/newyork.css">
     <link rel="stylesheet" href="/css/comun.css">
     <title>Document</title>
+    <style>
+        table {
+            border: 1px solid;
+        }
+
+        td,
+        th {
+            border: 1px solid;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        .columna {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .columna span {
+            margin-bottom: 5px;
+        }
+
+        .columna a {
+            display: block;
+            text-align: center;
+            margin-top: 5px;
+        }
+    </style>
 </head>
 
 <body>
@@ -96,18 +136,9 @@
     <br>
     <br>
     <table>
-        <thead>
-            <tr>
-                <th>Ubicación</th>
-                <th>Nombre</th>
-                <th>Descripción</th>
-                <th>Precio</th>
-                <th sec:authorize="hasRole('ADMIN')">Editar</th>
-                <th sec:authorize="hasRole('ADMIN')">Borrar</th>
-                <th>Valoraciones</th>
-        </thead>
         <tbody>
-            <tr th:each="lugar_:${lugar.productos}">
+
+            <!-- <tr th:each="lugar_:${lugar.productos}">
                 <td th:text="${lugar_.ubicacion}">ubicacion</td>
                 <td id="nombreSitio" th:text="${lugar_.nombre}">nombre</td>
                 <td th:text="${lugar_.descripcion}">Descripcion <textarea cols="30" rows="10"></textarea></td>
@@ -119,8 +150,38 @@
                         <span th:text="${lugar_.valoracion.size}">Id</span>
                     </a></td>
 
-            </tr>
-
+            </tr> -->
+            <div class="container-fluid">
+                <td th:each="lugar_:${lugar.productos}">
+                    <div class="columna">
+                        <span>Ubicación:</span>
+                        <span th:text="${lugar_.ubicacion}">ubicacion</span>
+                    </div>
+                    <div class="columna">
+                        <span>Nombre:</span>
+                        <span id="nombreSitio" th:text="${lugar_.nombre}">nombre</span>
+                    </div>
+                    <div class="columna">
+                        <span>Descripción:</span>
+                        <span th:text="${lugar_.descripcion}">Descripcion</span>
+                    </div>
+                    <div class="columna">
+                        <span>Precio:</span>
+                        <span th:text="${lugar_.Precio}">0</span>
+                    </div>
+                    <div class="columna">
+                        <a th:href="@{/lugares/edit/{id}(id=${lugar_.id})}" sec:authorize="hasRole('ADMIN')">Editar</a>
+                    </div>
+                    <div class="columna" sec:authorize="hasRole('ADMIN')">
+                        <a th:href="@{/lugares/delete/{id}(id=${lugar_.id})}">Borrar</a>
+                    </div>
+                    <div class="columna">
+                        <a th:href="@{/valoracion/pro/{id}(id=${lugar_.id})}">
+                            Valoración: <span th:text="${lugar_.valoracion.size}">Id</span>
+                        </a>
+                    </div>
+                </td>
+            </div>
         </tbody>
     </table>
     <!-- <a href="/">Inicio</a><br /> -->
@@ -133,14 +194,14 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-    crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-    crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
-    integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
-    crossorigin="anonymous"></script>
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
+        integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
+        crossorigin="anonymous"></script>
 
 </body>
 

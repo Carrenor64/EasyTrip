@@ -1,0 +1,20 @@
+h1 {
+    text-align: center;
+    color: #F9D949;
+    background-color: #F45050;
+    padding: 2px;
+    margin: 0px;
+}
+
+.container{
+    display: grid;
+    place-items: center;
+    margin: auto;
+    /* border: 1px solid; */
+    margin-top: 20px;
+    width: 450px;
+    height: auto;
+    padding: 25px 0px;
+    background-color: #F9D949;
+    border-radius: 10px;
+}

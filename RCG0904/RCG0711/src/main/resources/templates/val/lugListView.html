@@ -18,26 +18,27 @@
             <a class="navbar-brand" id="easy" href="/">EasyTrip</a>
         </nav>
     </div>
-    <h1>Listado de Usuarios de un lugar</h1>
-    <h2 th:text="'usuario: ' + ${usuario.nombre}">Usuario</h2>
+    <h1>Listado de Lugares de un usuario</h1>
+    <h2 th:text="'Lugar: ' + ${lugares.nombre}">Lugar</h2>
     <table>
         <thead>
             <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Puesto</th>
+                <th>Nombre Usuario</th>
+                <!-- <th>Nombre</th> -->
+                <th>Puntuacion</th>
                 <th>Comentario</th>
-                <th>Borrar</th>
+                <th sec:authorize="hasRole('ADMIN')">Borrar</th>
             </tr>
         </thead>
         <tbody>
             <tr th:each="valoracion : ${listaValoracion}">
-                <td th:text="${valoracion.lugares.id}">Id</td>
-                <td th:text="${valoracion.lugares.nombre}">nombre</td>
+                <td th:text="${valoracion.usuario.nombre}">nombreUs</td>
+                <!-- <td th:text="${valoracion.lugares.nombre}">nombre</td> -->
                 <td th:text="${valoracion.puntuacion}">Puntuacion</td>
                 <td th:text="${valoracion.comentario}">Comentario</td>
-                <td><a th:href="@{/valoracion/delete/{id}
-(id=${valoracion.id})}">Borrar</a></td>
+                <td sec:authorize="hasRole('ADMIN')"><a th:href="@{/valoracion/delete/{idPro}/{idUsu}
+(idPro=${valoracion.lugares.id},
+idUsu=${valoracion.usuario.id})}">Borrar</a></td>
             </tr>
         </tbody>
     </table>

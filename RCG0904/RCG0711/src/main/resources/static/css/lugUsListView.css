@@ -1,14 +1,15 @@
-/* #easy {
-    font-size: 20px;
-    color: #F45050;
-    margin: 0%;
-} */
-
 h1 {
     text-align: center;
     color: #F9D949;
-    /* margin-top: 10px; */
     background-color: #F45050;
+    padding: 2px;
+    margin: 0px;
+}
+
+h2 {
+    color: #F45050;
+    background-color: #F9D949;
+    padding: 2px;
 }
 
 table {
@@ -23,7 +24,7 @@ th,
 td {
     padding: 10px;
     text-align: left;
-    border: 1px solid  #F45050;
+    border: 1px solid #F45050;
 }
 
 th {
@@ -35,7 +36,8 @@ tbody tr:nth-child(even) {
     background-color: #F9D949;
 }
 
-a {
+
+#valoracionNueva {
     display: inline-block;
     color: #ffffff;
     border: none;

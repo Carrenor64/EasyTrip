@@ -29,15 +29,15 @@ public class ValoracionController {
     @Autowired
     public UsuarioService usuarioService;
 
-    @GetMapping("/lu/{id}") // lista de proyectos de un empleado
+    @GetMapping("/pro/{id}") // lista de proyectos de un empleado
     public String showProyectsByEmpl(@PathVariable long id, Model model) {
         Lugares p = lugaresService.findById(id);
         model.addAttribute("listaValoracion", valoracionServicio.findByLugares(p));
         model.addAttribute("lugares", lugaresService.findById(id));
-        return "val/proListView";
+        return "val/lugListView";
     }
 
-    @GetMapping("/usu/{id}") // lista de empleados de un proyecto
+    @GetMapping("/usu/{id}") 
     public String showEmplbyProyect(@PathVariable long id, Model model) {
         Usuario u = usuarioService.findById(id);
         model.addAttribute("listaValoracion", valoracionServicio.findByUsuario(u));
@@ -51,15 +51,15 @@ public class ValoracionController {
         return "redirect:/";
     }
 
-    @GetMapping("/new")
+    @GetMapping("/nuevo")
     public String showNewProjectEmpl(Model model) {
         model.addAttribute("valoracionForm", new Valoracion());
         model.addAttribute("listaLugares", lugaresService.findAll());
         model.addAttribute("listaUsuario", usuarioService.findAll());
-        return "val/proUsuNewFormView";
+        return "val/lugUsuNewFormView";
     }
 
-    @PostMapping("/new/submit")
+    @PostMapping("/nuevo/submit")
     public String showNewProjectEmplSubmit(
             @Valid @ModelAttribute("valoracionForm") Valoracion nuevaValoracion,
             BindingResult bindingResult) {
@@ -69,3 +69,4 @@ public class ValoracionController {
     }
 
 }
+

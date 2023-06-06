@@ -37,8 +37,8 @@
                     <th>Nombre</th>
                     <th>Descripción</th>
                     <th>Precio</th>
-                    <th>Editar</th>
-                    <th>Borrar</th>
+                    <th sec:authorize="hasRole('ADMIN')">Editar</th>
+                    <th sec:authorize="hasRole('ADMIN')">Borrar</th>
                     <th>Valoraciones</th>
             </thead>
             <tbody>
@@ -47,8 +47,8 @@
                     <td id="nombreSitio" th:text="${lugar_.nombre}">nombre</td>
                     <td th:text="${lugar_.descripcion}">Descripcion</td>
                     <td th:text="${lugar_.Precio}">0</td>
-                    <td><a th:href="@{/lugares/edit/{id}(id=${lugar_.id})}">Editar</a></td>
-                    <td><a th:href="@{/lugares/delete/{id}(id=${lugar_.id})}">Borrar</a></td>
+                    <td sec:authorize="hasRole('ADMIN')"><a th:href="@{/lugares/edit/{id}(id=${lugar_.id})}">Editar</a></td>
+                    <td sec:authorize="hasRole('ADMIN')"><a th:href="@{/lugares/delete/{id}(id=${lugar_.id})}">Borrar</a>
                     <td><a th:href="@{/valoracion/pro/{id}(id=${lugar_.id})}">Valoracion:
                             <span th:text="${lugar_.valoracion.size}">Id</span>
                         </a></td>

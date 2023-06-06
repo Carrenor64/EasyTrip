@@ -53,5 +53,8 @@ public class ValoracionServiceImpl implements ValoracionServicio {
                 .orElseThrow(() -> new ValoracionNotFound(id));
         return valoracion;
     }
+    // public Valoracion findOneValoracion(long id) {
+    // return repositorio.findById(id).orElse(null);
+    // }
 
 }

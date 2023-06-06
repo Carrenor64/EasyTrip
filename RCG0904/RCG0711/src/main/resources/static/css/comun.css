@@ -2,3 +2,8 @@ body {
     background-color: #3C486B;
     font-family: Arial, sans-serif;
 }
+
+#easy {
+    color: #F45050;
+    padding-left: 10px;
+}
