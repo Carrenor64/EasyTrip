@@ -1,11 +1,14 @@
 package com.example.demo.controllers;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -14,8 +17,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.example.demo.domain.Lugares;
+import com.example.demo.services.FileStorageService;
 import com.example.demo.services.LugaresServiceImplMem;
 import com.example.demo.services.PaisServicelmplMen;
 
@@ -25,6 +32,9 @@ public class LugaresController {
 
     @Autowired
     LugaresServiceImplMem lugaresService;
+
+    @Autowired
+    public FileStorageService fileStorageService;
 
     @Autowired
     PaisServicelmplMen paisService;
@@ -91,14 +101,83 @@ public class LugaresController {
     // return "lug/lugaresNewView";
     // }
 
+    // @PostMapping("/new/submit")
+    // public String showNewSubmit(
+    // @Valid @ModelAttribute("lugarForm") Lugares nuevoLugar,
+    // BindingResult bindingResult) {
+    // if (bindingResult.hasErrors())
+    // return "newForm";
+    // nuevoLugar.setImagen("prueba");
+    // lugaresService.add(nuevoLugar);
+    // return "redirect:/";
+    // }
+
+    // @PostMapping("/new/submit")
+    // public String showNewSubmit(
+    // @Valid @ModelAttribute("lugarForm") Lugares nuevoLugar, @RequestParam("file")
+    // MultipartFile file,
+    // BindingResult bindingResult) {
+    // if (bindingResult.hasErrors())
+    // return "newForm";
+    // try {
+    // if (!file.isEmpty()) {
+    // // String newFileName;
+    // String newFileName = fileStorageService.store(file);
+    // nuevoLugar.setImagen(newFileName);
+    // lugaresService.add(nuevoLugar);
+    // return "redirect:/";
+    // }
+    // } catch (Exception e) {
+    // System.out.println(e);
+    // return "redirect:/lugares/list";
+    // }
+    // nuevoLugar.setImagen("prueba");
+    // lugaresService.add(nuevoLugar);
+    // return "redirect:/";
+    // }
+
+    // @PostMapping("/new/submit")
+    // public String showNewSubmit(
+    // @Valid @ModelAttribute("lugarForm") Lugares lugar,
+    // BindingResult bindingResult, @RequestParam("file") MultipartFile file) {
+    // // if (bindingResult.hasErrors()) {
+    // // return "newForm";
+    // // } else {
+
+    // try {
+    // if (!file.isEmpty()) {
+    // // String newFileName;
+    // String newFileName = fileStorageService.store(file);
+    // lugar.setImagen(newFileName);
+    // lugaresService.add(lugar);
+    // return "redirect:/";
+    // }
+    // } catch (Exception e) {
+    // return "lug/lugaresNewView";
+    // }
+    // // }
+    // System.out.println(lugar + "*************");
+    // System.out.println(file.getSize());
+    // return "redirect:/";
+    // }
+
     @PostMapping("/new/submit")
-    public String showNewSubmit(
-            @Valid @ModelAttribute("lugarForm") Lugares nuevoLugar,
-            BindingResult bindingResult) {
-        if (bindingResult.hasErrors())
-            return "newForm";
-        lugaresService.add(nuevoLugar);
-        return "redirect:/";
+    public String showNewSubmit(@Valid @ModelAttribute("lugarForm") Lugares nuevoLugar,
+    BindingResult bindingResult, @RequestParam("file") MultipartFile file) {
+        try {
+            String newFileName = "";
+            if (!file.isEmpty()) {
+                System.out.println("Files:" + file.getSize());
+                newFileName = fileStorageService.store(file);
+
+            }
+            nuevoLugar.setImagen(newFileName);
+            lugaresService.add(nuevoLugar);
+            System.out.println("Figure:" + nuevoLugar);
+            return "redirect:/lugares/list";
+        } catch (Exception e) {
+            return "lug/lugaresNewView";
+        }
     }
 
     @GetMapping("/edit/{id}")
@@ -124,9 +203,53 @@ public class LugaresController {
         }
     }
 
+    // @PostMapping("/edit/submit")
+    // public String showEditSubmit(
+    // @Valid @ModelAttribute("lugarForm") Lugares lugar,
+    // BindingResult bindingResult, @RequestParam("file") MultipartFile file) {
+    // try {
+    // String newFileName;
+    // newFileName = fileStorageService.store(file);
+    // lugar.setImagen(newFileName);
+    // lugaresService.edit(lugar);
+    // return "redirect:/lugares/list";
+    // } catch (Exception e) {
+    // return "lug/lugaresEditView";
+    // }
+    // }
+
+    // @PostMapping("/edit/submit")
+    // public String showEditSubmit(
+    // @Valid @ModelAttribute("lugarForm") Lugares lugar,
+    // BindingResult bindingResult,
+    // @RequestParam(value = "file", required = false) MultipartFile file) {
+    // if (bindingResult.hasErrors()) {
+    // return "lug/lugarEditView";
+    // } else {
+    // if (file != null && !file.isEmpty()) {
+    // try {
+    // String newFileName = fileStorageService.store(file);
+    // lugar.setImagen(newFileName);
+    // } catch (Exception e) {
+    // // Manejar la excepción en caso de error al almacenar el archivo
+    // return "lug/lugarEditView";
+    // }
+    // }
+    // lugaresService.edit(lugar);
+    // return "redirect:/lugares/list";
+    // }
+    // }
+
     @GetMapping("/delete/{id}")
     public String showDelete(@PathVariable long id) {
         lugaresService.delete(id);
         return "redirect:/lugares/list";
+    }
+
+    @GetMapping("/files/{filename:.+}")
+    @ResponseBody
+    public ResponseEntity<Resource> serveFile(@PathVariable String filename) {
+        Resource file = fileStorageService.loadAsResource(filename);
+        return ResponseEntity.ok().body(file);
     }
 }

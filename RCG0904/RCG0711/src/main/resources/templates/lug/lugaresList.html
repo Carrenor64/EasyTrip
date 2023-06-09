@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/css/comun.css">
     <title>Lugares</title>
     <style>
-        
+
     </style>
 </head>
 
@@ -42,6 +42,7 @@
                         <th>Nombre</th>
                         <th>Descripción</th>
                         <th>Precio</th>
+                        <th>Foto</th>
                         <th>Editar</th>
                         <th>Borrar</th>
                         <th>Valoraciones</th>
@@ -53,6 +54,10 @@
                         <td th:text="${lugar.nombre}">nombre</td>
                         <td th:text="${lugar.descripcion}">Descripcion</td>
                         <td th:text="${lugar.Precio}">0</td>
+                        <td>
+                            <img alt="" th:src="@{'http://localhost:9000/files/'+${lugar.imagen}}"
+                                style="width:125px;"></img>
+                        </td>
                         <td><a th:href="@{/lugares/edit/{id}(id=${lugar.id})}">Editar</a></td>
                         <td><a th:href="@{/lugares/delete/{id}(id=${lugar.id})}">Borrar</a></td>
                         <td>

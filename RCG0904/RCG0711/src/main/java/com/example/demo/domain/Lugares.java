@@ -42,15 +42,17 @@ public class Lugares {
     String nombre;
     String descripcion;
     double precio;
-    long idPais;
+    // long idPais;
+    String imagen;
 
     public Lugares(String ubicacion, String nombre, String descripcion, double precio,
-            Pais pais) {
+            Pais pais, String imagen) {
         this.ubicacion = ubicacion;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.precio = precio;
         this.pais = pais;
+        this.imagen = imagen;
 
     }
 }

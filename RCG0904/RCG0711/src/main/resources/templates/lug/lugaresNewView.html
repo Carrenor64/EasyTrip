@@ -18,9 +18,10 @@
     </nav>
     <h1>Nuevo Lugar</h1>
     <div id="borde">
-        <form method="post" action="#" th:action="@{/lugares/new/submit}" th:object="${lugarForm}">
+        <form method="post" action="#" th:action="@{/lugares/new/submit}" th:object="${lugarForm}"
+            enctype="multipart/form-data">
             <label>País:
-                <select name="pais">
+                <select name="pais" th:field="*{pais}">
                     <option th:each="pa : ${listaPais}" th:value="${pa.id}" th:text="${pa.nombre}">
                     </option>
                 </select>
@@ -30,6 +31,7 @@
             <label>Descripcion <br> <textarea id="descripcion" th:field="*{descripcion}" cols="40"
                     rows="2"></textarea></label><br />
             <label>Precio <br><input type="text" id="precio" th:field="*{precio}" /></label><br />
+            <label>Images:</label> <input type="file" name="file"><br>
             <input type="submit" value="enviar" id="enviar">
         </form>
 

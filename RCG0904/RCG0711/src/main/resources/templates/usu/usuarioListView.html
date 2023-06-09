@@ -28,7 +28,7 @@
                     <th>Fecha Registro</th>
                     <th>Contraseña</th>
                     <th>ROL</th>
-                    <th>Editar</th>
+                    <!-- <th>Editar</th> -->
                     <th>Borrar</th>
                     <th>Valoraciones</th>
                 </tr>
@@ -40,8 +40,8 @@
                     <td th:text="${usuario.fechaNacimiento}">nombre</td>
                     <td th:text="${usuario.password}">Contraseña</td>
                     <td th:text="${usuario.rol}">ROL</td>
-                    <td><a th:href="@{/usuario/edit/{id}(id=${usuario.id})}">
-                            Editar</a></td>
+                    <!-- <td><a th:href="@{/usuario/edit/{id}(id=${usuario.id})}"> -->
+                            <!-- Editar</a></td> -->
                     <td><a th:href="@{/usuario/delete/{id}(id=${usuario.id})}">
                             Borrar</a></td>
                     <td><a th:href="@{/valoracion/usu/{id}(id=${usuario.id})}">
