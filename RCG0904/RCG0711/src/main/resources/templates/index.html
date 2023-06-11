@@ -18,44 +18,52 @@
             <a href="/lugares/newyork">
                 <div id="bloqueUno" class="bloques">
                     <div id="uno">
-                        <p> Nueva York es una ciudad llena de energía, cultura y oportunidades. Es un destino
-                            fascinante para los amantes de la arquitectura, el arte, la comida y la vida urbana,
-                            ofreciendo
-                            una
-                            experiencia única y emocionante para quienes la visitan.
+                        <p class="frase"> "La mentalidad de suburbios es incapaz de abarcar la complejidad emergente de
+                            una acera de
+                            Nueva York." - Robin Sloan
                         </p>
                     </div>
-                    <div id="dos"><img src="imagenes/centralPark.jpg" alt=""></div>
+                    <div id="dos"><img src="img/newyork.jpg" alt=""></div>
                 </div>
             </a>
             <a href="/lugares/paris">
                 <div id="bloqueDos" class="bloques">
                     <div id="tres"><img src="img/paris.jpg" alt=""></div>
-                    <div id="cuatro"></div>
+                    <div id="cuatro">
+                        <p class="frase"> "París responde a todo lo que el corazón desea." - Chopin
+                        </p>
+                    </div>
                 </div>
             </a>
             <a href="/lugares/tokio">
                 <div id="bloqueTres" class="bloques">
-                    <div id="cinco"></div>
+                    <div id="cinco">
+                        <p class="frase">„Cuando uno está en Tokio, Tokio está por todas partes..“ - Ray Loriga</p>
+                    </div>
                     <div id="seis"><img src="img/tokyo.jpg" alt=""></div>
                 </div>
             </a>
             <a href="/lugares/corunha">
                 <div id="bloqueCuatro" class="bloques">
-                    <div class="siete"><img src="img/coruña.jpg" alt=""></div>
-                    <div class="ocho"></div>
+                    <div id="siete"><img src="img/coruña.jpg" alt=""></div>
+                    <div id="ocho">
+                        <p class="frase">"Quen teña honra que me siga" - Maria Pita</p>
+                    </div>
                 </div>
             </a>
             <a href="/lugares/brasilia">
                 <div id="bloqueCinco" class="bloques">
-                    <div class="nueve"></div>
-                    <div class="diez"><img src="img/brasilia.jpg" alt=""></div>
+                    <div id="nueve">
+                        <p class="frase">"Verás los palacios de Brasilia, te pueden gustar o no, pero nunca digas que
+                            has visto algo así antes." - Oscar Niemeyer</p>
+                    </div>
+                    <div id="diez"><img src="img/brasilia.jpg" alt=""></div>
                 </div>
             </a>
         </div>
         <div class="card text-center" id="div">
             <div class="card-body">
-                <a class="nav-item nav-link active text-danger" th:href="@{/login}">Iniciar sesión</a>
+                <a id="inicioSe" class="nav-item nav-link active" th:href="@{/login}">Iniciar sesión</a>
                 <form id="boton" th:action="@{/logout}" method="post">
                     <input type="submit" class="btn" value="Cerrar sesión">
                 </form>

@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Función para validar el formulario
     function validateForm() {
         // Obtener los campos del formulario
-        const ubicacionInput = document.getElementById("ubicacion");
+        const ubicacionInput = document.getElementById("horario");
         const nombreInput = document.getElementById("nombre");
         const descripcionInput = document.getElementById("descripcion");
         const precioInput = document.getElementById("precio");

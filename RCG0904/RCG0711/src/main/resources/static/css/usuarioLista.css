@@ -1,21 +1,16 @@
-/* #easy {
-    font-size: 20px;
-    color: #F45050;
-    margin: 0%;
-} */
-
 h1 {
     text-align: center;
-    color: #F9D949;
-    /* margin-top: 20px; */
-    background-color: #F45050;
+    color: #FFFFFF;
+    background-color: #588157;
+    padding: 5px;
 }
 
 table {
     margin: 20px auto;
     border-collapse: collapse;
+    color: #344E41;
     width: 80%;
-    background-color: #F9D949;
+    background-color: #A3B18A;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -23,18 +18,18 @@ th,
 td {
     padding: 15px;
     text-align: left;
-    border: 1px solid #F45050;
+    border: 1px solid #344E41;
 }
 
+
 th {
-    background-color: #F45050;
-    color: #fff;
-    text-align: center;
+    background-color: #344E41;
+    color: #FFFFFF;
 }
 
 a[href="/usuario/new"]:not([class]) {
     display: inline-block;
-    color: #ffffff;
+    color: #344E41;
     border: none;
     padding: 10px 20px;
     display: flex;
@@ -46,11 +41,10 @@ a[href="/usuario/new"]:not([class]) {
 
 
 #cerrarSesion {
-    background-color: #F9D949;
-    color: #3C486B;
+    background-color: #344E41;
+    color: #FFFFFF;
 }
 
-/* Clases de Bootstrap para hacer la tabla responsive */
 @media (max-width: 767.98px) {
     table {
         width: 100%;
@@ -69,15 +63,3 @@ a[href="/usuario/new"]:not([class]) {
         -ms-overflow-style: -ms-autohiding-scrollbar;
     }
 }
-
-
-/* div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #F9D949;
-    border-radius: 12px;
-    margin: 20px auto;
-    width: 80%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-} */

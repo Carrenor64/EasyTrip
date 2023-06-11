@@ -1,20 +1,33 @@
 h1 {
     text-align: center;
-    color: #F9D949;
-    background-color: #F45050;
-    padding: 2px;
-    margin: 0px;
+    color: #FFFFFF;
+    background-color: #588157;
+    padding: 5px;
 }
 
-.container{
+#nuevaValoracion {
     display: grid;
     place-items: center;
     margin: auto;
-    /* border: 1px solid; */
     margin-top: 20px;
     width: 450px;
     height: auto;
     padding: 25px 0px;
-    background-color: #F9D949;
+    background-color: #344E41;
     border-radius: 10px;
+}
+
+label {
+    color: #FFFFFF;
+    font-weight: bolder;
+}
+
+input {
+    border-radius: 10px;
+    box-sizing: border-box;
+    width: 350px;
+    height: 55px;
+    background: #F0F0F0;
+    border: 1px solid #000000;
+    border-radius: 12px;
 }

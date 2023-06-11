@@ -7,6 +7,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -38,21 +39,21 @@ public class Lugares {
     @OneToMany(mappedBy = "lugares", cascade = CascadeType.REMOVE)
     private List<Valoracion> valoracion = new ArrayList<>();
 
-    String ubicacion;
     String nombre;
+    String horario;
     String descripcion;
-    double precio;
-    // long idPais;
-    String imagen;
+    String precioEU;
+    @Lob
+    private byte[] imagenData;
 
-    public Lugares(String ubicacion, String nombre, String descripcion, double precio,
-            Pais pais, String imagen) {
-        this.ubicacion = ubicacion;
+    public Lugares(String nombre, String horario, String descripcion, String precioEU,
+            Pais pais, byte[] imagenData) {
         this.nombre = nombre;
+        this.horario = horario;
         this.descripcion = descripcion;
-        this.precio = precio;
+        this.precioEU = precioEU;
         this.pais = pais;
-        this.imagen = imagen;
+        this.imagenData = imagenData;
 
     }
 }

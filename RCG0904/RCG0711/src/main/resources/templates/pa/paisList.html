@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>ListadoPaises</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/comun.css">
@@ -13,30 +13,27 @@
 </head>
 
 <body>
-    <div class="container-fluid">
-        <nav class=" navbar navbar-expand-lg navbar-light ">
+    <div class="container-fluid" id="logoEasyTrip">
+        <nav class="navbar navbar-expand-lg navbar-light">
             <a class="navbar-brand" id="easy" href="/">EasyTrip</a>
         </nav>
     </div>
-    <h1>Listado de Pais</h1>
+    <h1>Lista de paises</h1>
     <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-        </thead>
-        <tbody>
-            <tr th:each="pais : ${listaPais}">
-                <td th:text="${pais.id}">Id</td>
-                <td th:text="${pais.nombre}">nombre</td>
-            </tr>
-        </tbody>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+        </tr>
+        <tr th:each="pais : ${listaPais}">
+            <td th:text="${pais.id}">Id</td>
+            <td th:text="${pais.nombre}">nombre</td>
+        </tr>
     </table>
     <a href="/pais/new" sec:authorize="hasRole('ADMIN')">Nueva pais</a>
     <footer id="cerrarSesion" class="card text-center">
         <div class="card-body">
             <form id="boton" th:action="@{/logout}" method="post">
-                <input type="submit" class="btn" value="Cerrar sesión">
+                <input id="sesionBoton" type="submit" class="btn btn-secondary" value="Cerrar sesión">
             </form>
         </div>
     </footer>

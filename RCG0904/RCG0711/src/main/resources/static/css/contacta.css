@@ -1,0 +1,43 @@
+h1 {
+    text-align: center;
+    color: #FFFFFF;
+    background-color: #588157;
+    padding: 5px;
+}
+
+#borderFormContacto {
+    display: grid;
+    place-items: center;
+    margin: auto;
+    background-color: #344E41;
+    padding: 20px;
+    width: 30%;
+    margin: 0 auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    display: block;
+    color: #A3B18A;
+}
+
+#nombreDeContacto,
+#emailDeContacto {
+    border-radius: 10px;
+    box-sizing: border-box;
+    width: 350px;
+    height: 55px;
+    background: #F0F0F0;
+    border: 1px solid #000000;
+    border-radius: 12px;
+}
+
+form input[type="submit"] {
+    background-color: #DAD7CD;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    color: #344E41;
+}

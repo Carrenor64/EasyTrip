@@ -7,112 +7,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-
-    <link rel="stylesheet" href="/css/corunha.css">
-    <link rel="stylesheet" href="/css/comun.css">
-
-    <title>Document</title>
-    <style>
-        table {
-            border: 1px solid;
-        }
-
-        td,
-        th {
-            border: 1px solid;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        th,
-        td {
-            padding: 10px;
-            border: 1px solid #ccc;
-        }
-
-        .columna {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .columna span {
-            margin-bottom: 5px;
-        }
-
-        .columna a {
-            display: block;
-            text-align: center;
-            margin-top: 5px;
-        }
-    </style>
+        <link rel="stylesheet" href="/css/estructuraDeLosLugares.css">
+        <link rel="stylesheet" href="/css/comun.css">
+    <title>Coruña</title>
 </head>
 
 <body>
-    <nav class=" navbar navbar-expand-lg navbar-light ">
-        <a class="navbar-brand" id="easy" href="/">EasyTrip</a>
-    </nav>
-    <h1 id="titulo">Coruña</h1>
-    <div class="container-fluid">
-        <table>
-            <thead>
-                <tr>
-                    <th>Ubicación</th>
-                    <th>Nombre</th>
-                    <th>Descripción</th>
-                    <th>Precio</th>
-                    <td sec:authorize="hasRole('ADMIN')"><a th:href="@{/lugares/edit/{id}(id=${lugar_.id})}">Editar</a></td>
-                    <td sec:authorize="hasRole('ADMIN')"><a th:href="@{/lugares/delete/{id}(id=${lugar_.id})}">Borrar</a>
-                    <th>Valoraciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td th:each="lugar_:${lugar.productos}">
-                        <div class="columna">
-                            <span>Ubicación:</span>
-                            <span th:text="${lugar_.ubicacion}">ubicacion</span>
-                        </div>
-                        <div class="columna">
-                            <span>Nombre:</span>
-                            <span id="nombreSitio" th:text="${lugar_.nombre}">nombre</span>
-                        </div>
-                        <div class="columna">
-                            <span>Descripción:</span>
-                            <span th:text="${lugar_.descripcion}">Descripcion</span>
-                        </div>
-                        <div class="columna">
-                            <span>Precio:</span>
-                            <span th:text="${lugar_.Precio}">0</span>
-                        </div>
-                        <div class="columna">
-                            <a th:href="@{/lugares/edit/{id}(id=${lugar_.id})}">Editar</a>
-                        </div>
-                        <div class="columna">
-                            <a th:href="@{/lugares/delete/{id}(id=${lugar_.id})}">Borrar</a>
-                        </div>
-                        <div class="columna">
-                            <a th:href="@{/valoracion/pro/{id}(id=${lugar_.id})}">
-                                Valoración: <span th:text="${lugar_.valoracion.size}">Id</span>
-                            </a>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-
+    <div class="container-fluid" id="logoEasyTrip">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" id="easy" href="/">EasyTrip</a>
+        </nav>
     </div>
-    <a href="/lugares/new" sec:authorize="hasRole('ADMIN')">Nuevo Lugar</a><br />
-    <div class="card text-center" id="cerrarSesion">
-        <div class="card-body">
-            <form id="boton" th:action="@{/logout}" method="post">
-                <input type="submit" class="btn" value="Cerrar sesión">
-            </form>
+    <h1 id="titulo">Coruña</h1>
+    <br>
+    <div class="container" id="contenedorDatos">
+        <div th:each="lugar_:${lugar.productos}" class="contenedorMiniaturaItem">
+            <div class="contenedorMiniaturaImagen">
+                <img th:src="@{/lugares/image/{id}(id=${lugar_.id})}" alt="Imagen del lugar" width="100" height="100">
+            </div>
+            <div class="contenedorMiniaturaInfo">
+                <div>
+                    <p id="nombreSitio" th:text="${lugar_.nombre}">nombre</p>
+                    <p th:text="${lugar_.horario}">horario</p>
+                </div>
+                <div>
+                    <p><a th:href="@{/valoracion/lug/{id}(id=${lugar_.id})}">Valoracion:
+                            <span th:text="${lugar_.valoracion.size}">Id</span>
+                        </a></p>
+                    <p th:text="${lugar_.precioEU}">0</p>
+                </div>
+            </div>
+            <p th:text="${lugar_.descripcion}">Descripcion <textarea cols="30" rows="10"></textarea></p>
         </div>
     </div>
+    <a href="/lugares/new" sec:authorize="hasRole('ADMIN')">Nuevo Lugar</a>
+    <footer class="card text-center" id="cerrarSesion">
+        <div class="card-body">
+            <form id="boton" th:action="@{/logout}" method="post">
+                <input id="sesionBoton" type="submit" class="btn btn-secondary" value="Cerrar sesión">
+            </form>
+        </div>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"></script>

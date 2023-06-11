@@ -13,15 +13,15 @@
 </head>
 
 <body>
-    <div class="container-fluid">
-        <nav class=" navbar navbar-expand-lg navbar-light ">
+    <div class="container-fluid" id="logoEasyTrip">
+        <nav class="navbar navbar-expand-lg navbar-light">
             <a class="navbar-brand" id="easy" href="/">EasyTrip</a>
         </nav>
     </div>
-    <h1>Nueva Pais</h1>
+    <h1>Nuevo Pais</h1>
     <div id="borde">
         <form method="post" action="#" th:action="@{/pais/new/submit}" th:object="${paisForm}">
-            <label>Nombre: <br><input type="text" id="nombre" th:field="*{nombre}" /></label><br />
+            <label>Añade un pais: <br><input type="text" id="NomDelPais" th:field="*{nombre}" /></label><br />
             <br>
             <input type="submit" value="enviar" id="enviar">
         </form>

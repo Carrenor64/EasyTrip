@@ -1,9 +1,22 @@
 body {
-    background-color: #3C486B;
     font-family: Arial, sans-serif;
 }
 
+#logoEasyTrip {
+    background-color: #344E41;
+}
+
 #easy {
-    color: #F45050;
+    color: #A3B18A;
     padding-left: 10px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+#cerrarSesion {
+    margin-top: auto;
 }

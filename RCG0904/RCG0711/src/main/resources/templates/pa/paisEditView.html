@@ -10,6 +10,11 @@
 </head>
 
 <body>
+    <div class="container-fluid" id="logoEasyTrip">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" id="easy" href="/">EasyTrip</a>
+        </nav>
+    </div>
     <h1>Editar Pais</h1>
     <form method="post" action="#" th:action="@{/pais/edit/submit}" th:object="${paisForm}">
         <label>Id: <input type="text" id="id" th:field="*{id}" /> </label><br />

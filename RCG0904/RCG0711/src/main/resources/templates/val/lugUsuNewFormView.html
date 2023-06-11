@@ -13,28 +13,31 @@
 </head>
 
 <body>
-    <div class="container-fluid">
-        <nav class=" navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid" id="logoEasyTrip">
+        <nav class="navbar navbar-expand-lg navbar-light">
             <a class="navbar-brand" id="easy" href="/">EasyTrip</a>
         </nav>
     </div>
 
     <h1>Lugares/Usuario Nueva relación</h1>
-    <div class="container">
+    <div id="nuevaValoracion">
         <form method="post" action="#" th:action="@{/valoracion/nuevo/submit}" th:object="${valoracionForm}">
-            Lugares:<br />
-            <select name="list1" th:field="*{lugares}">
-                <option value="0">select option</option>
-                <option th:each="lugar:${listaLugares}" th:value="${lugar.id}" th:text="${lugar.nombre}">
-                </option>
-            </select><br />
-            Usuario:<br />
-            <select name="list2" th:field="*{Usuario}">
-                <option value="0">select option</option>
-                <option th:each="usuario:${listaUsuario}" th:value="${usuario.id}" th:text="${usuario.nombre}">
-                </option>
-            </select><br />
-            <label>Puntuacion:<input type="text" id="puntuacion" th:field="*{puntuacion}" /></label><br />
+            <label> Lugares: <br>
+                <select name="list1" th:field="*{lugares}">
+                    <option value="0">select option</option>
+                    <option th:each="lugar:${listaLugares}" th:value="${lugar.id}" th:text="${lugar.nombre}">
+                    </option>
+                </select>
+            </label>
+            <br />
+            <label> Usuario: <br>
+                <select name="list2" th:field="*{Usuario}">
+                    <option value="0">select option</option>
+                    <option th:each="usuario:${listaUsuario}" th:value="${usuario.id}" th:text="${usuario.nombre}">
+                    </option>
+                </select>
+            </label><br />
+            <label>Puntuacion: <br> <input type="text" id="puntuacion" th:field="*{puntuacion}" /></label><br />
             <label>Comentario: <br><textarea id="comentario" th:field="*{comentario}" cols="30"
                     rows="10"></textarea></label><br />
             <input type="submit" value="Enviar" />

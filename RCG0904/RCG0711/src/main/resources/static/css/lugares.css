@@ -1,25 +1,18 @@
-/* #easy {        
-    font-size: 20px;
-    color: #F45050;
-} */
-
 #titulo {
-    color: #F9D949;
     text-align: center;
-    background-color: #F45050;
+    color: #FFFFFF;
+    background-color: #588157;
+    padding: 5px;
     margin: 0%;
 }
 
 h2 {
-    padding: 5px;
-    background-color: #F9D949;
-    color: #F45050;
-    padding-left: 5px;
-    /* background-color: #F45050; */
+    color: #588157;
+    margin-left: 50px;
 }
 
 #select {
-    margin-left: 5px;
+    margin-left: 50px;
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -32,35 +25,42 @@ h2 {
 }
 
 table {
-    background-color: #F9D949;
-    border-color: #F45050;
+    margin: 20px auto;
+    border-collapse: collapse;
+    color: #344E41;
+    width: 80%;
+    background-color: #A3B18A;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 td,
 th {
-    padding: 30px;
+    padding: 15px;
+    text-align: left;
+    border: 1px solid #344E41;
+    text-align: center;
 
 }
 
 th {
-    background-color: #F45050;
-    color: white;
+    background-color: #344E41;
+    color: #FFFFFF;
 }
 
 td a {
-    color: #007bff;
+    color: #FFFFFF;
     text-decoration: none;
 }
 
 td a:hover {
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 
 a[href="/lugares/new"]:not([class]) {
     display: inline-block;
     margin-top: 20px;
-    color: #ffffff;
+    color: #344E41;
     border: none;
     padding: 10px 20px;
     text-decoration: none;
@@ -72,8 +72,7 @@ a[href="/lugares/new"]:not([class]) {
 
 a[href="/usuario/"]:not([class]) {
     display: inline-block;
-    color: #ffffff;
-    /* background-color: #dc3545; */
+    color: #344E41;
     border: none;
     padding: 10px 20px;
     display: flex;
@@ -84,8 +83,8 @@ a[href="/usuario/"]:not([class]) {
 }
 
 #cerrarSesion {
-    background-color: #F9D949;
-    color: #3C486B;
+    background-color: #344E41;
+    color: #FFFFFF;
 }
 
 @media (max-width: 767.98px) {

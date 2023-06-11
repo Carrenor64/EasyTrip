@@ -13,11 +13,13 @@
 </head>
 
 <body>
-    <nav class=" navbar navbar-expand-lg navbar-light ">
-        <a class="navbar-brand" id="easy" href="/">EasyTrip</a>
-    </nav>
+    <div class="container-fluid" id="logoEasyTrip">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" id="easy" href="/">EasyTrip</a>
+        </nav>
+    </div>
     <h1>Nuevo Lugar</h1>
-    <div id="borde">
+    <div id="formLug">
         <form method="post" action="#" th:action="@{/lugares/new/submit}" th:object="${lugarForm}"
             enctype="multipart/form-data">
             <label>País:
@@ -26,13 +28,13 @@
                     </option>
                 </select>
             </label><br />
-            <label>Ubicacion: <br><input type="text" id="ubicacion" th:field="*{ubicacion}" /></label><br />
-            <label>Nombre <br><input type="text" id="nombre" th:field="*{nombre}" /></label><br />
+            <label>Nombre <br><input type="text" id="nombre" th:field="*{nombre}" class="datosFormLug" /></label><br />
+            <label>Horario: <br><input type="text" id="horario" th:field="*{horario}" class="datosFormLug"/></label><br />
             <label>Descripcion <br> <textarea id="descripcion" th:field="*{descripcion}" cols="40"
                     rows="2"></textarea></label><br />
-            <label>Precio <br><input type="text" id="precio" th:field="*{precio}" /></label><br />
-            <label>Images:</label> <input type="file" name="file"><br>
-            <input type="submit" value="enviar" id="enviar">
+            <label>Precio <br><input type="text" id="precio" th:field="*{precioEU}" class="datosFormLug"/></label><br />
+            <label>Imagen: <br><input type="file" name="imagen" /></label><br /><br>
+            <input type="submit" value="enviar" id="enviar" class="datosFormLug">
         </form>
 
     </div>
@@ -47,3 +49,5 @@
         crossorigin="anonymous"></script>
     <script src="/js/validarLugar.js"></script>
 </body>
+
+</html>

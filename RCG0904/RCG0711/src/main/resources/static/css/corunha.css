@@ -1,28 +1,63 @@
-#titulo {
-    color: #F9D949;
+h1 {
     text-align: center;
-    margin: auto;
+    color: #FFFFFF;
+    background-color: #588157;
+    padding: 5px;
+    margin: 0%;
+}
+
+h2 {
+    color: #588157;
+    margin-left: 50px;
+}
+
+#contenedorDatos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 2cm;
+}
+
+.contenedorMiniaturaItem {
+    border: 1px solid black;
+    padding: 1cm;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.contenedorMiniaturaImagen {
+    margin-bottom: 1cm;
+    border: 1px solid;
+}
+
+.contenedorMiniaturaImagen img {
+    width: 100%;
+    height: auto;
+}
+
+.contenedorMiniaturaInfo {
+    margin-bottom: 1cm;
+}
+
+.contenedorMiniaturaInfo div {
+    margin-bottom: 0.5cm;
+}
+
+.contenedorMiniaturaInfo p {
+    margin: 0;
 }
 
 #cerrarSesion {
-    background-color: #F9D949;
-    color: #3C486B;
-    position: absolute;
+    background-color: #344E41;
+    color: #FFFFFF;
     bottom: 0;
-    width: 100%;
-}
-table {
-    border: 1px solid;
 }
 
-td,
-th {
-    border: 1px solid;
-}
 a[href="/lugares/new"]:not([class]) {
     display: inline-block;
     margin-top: 20px;
-    color: #ffffff;
+    color: #344E41;
     border: none;
     padding: 10px 20px;
     text-decoration: none;
@@ -30,4 +65,14 @@ a[href="/lugares/new"]:not([class]) {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+#cerrarSesion {
+    margin-top: auto;
 }

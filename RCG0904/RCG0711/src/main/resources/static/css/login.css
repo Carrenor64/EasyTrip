@@ -6,7 +6,7 @@
 
 body {
     position: relative;
-    background: #3C486B;
+    background: #344E41;
 
 }
 
@@ -18,7 +18,7 @@ h1 {
     top: 200px;
     font-size: 64px;
     line-height: 77px;
-    color: #F9D949;
+    color: #A3B18A;
 }
 
 #informacion {
@@ -39,7 +39,7 @@ h1 {
     height: 450px;
     right: 120px;
     top: 140px;
-    background: #F9D949;
+    background-color: #A3B18A;
     border-radius: 12px;
 }
 
@@ -62,7 +62,7 @@ h1 {
     height: 50px;
     right: 130px;
     top: 280px;
-    background: #F45050;
+    background: #588157;
     border-radius: 12px;
     color: white;
     font-style: bold;
@@ -89,7 +89,7 @@ h1 {
 
 
 #crear {
-    background-color: #F0F0F0;
+    background-color: #344E41;
     border: 1px solid;
     border-radius: 12px;
     position: absolute;
@@ -97,7 +97,6 @@ h1 {
     height: 40px;
     left: 140px;
     top: 380px;
-    color: #3C486B;
     font-weight: bold;
     text-decoration: none;
 }

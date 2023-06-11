@@ -1,145 +1,3 @@
-<!-- <!DOCTYPE html>
-<html xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New York</title>
-    <link th:href="@{/css/styles.css}" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    <link rel="stylesheet" href="css/comun.css">
-    <link rel="stylesheet" href="css/newyork.css">
-
-    <style>
-        table {
-            border: 1px solid;
-        }
-
-        .row {
-            border: 1px solid;
-
-        }
-
-        .col-sm-3 {
-            border: 1px solid;
-            width: 100px;
-            height: 100px;
-        }
-    </style>
-</head>
-
-<body>
-    <div class="container-fluid">
-        <div id="filaUno" class="row">
-            <a class="navbar-brand" id="easy" href="/">EasyTrip</a>
-            <h1 id="titulo">BIENVENIDOS A NEW YORK</h1>
-        </div>
-
-        <div class="container-fluid">
-            <div class="row" th:each="lugar_:${lugar.productos}">
-                <div class="col-sm-3"> <span>Ubicación:</span>
-                    <span th:text="${lugar_.ubicacion}">ubicacion</span>
-                    <span>Nombre:</span>
-                    <span id="nombreSitio" th:text="${lugar_.nombre}">nombre</span>
-                    <span>Descripción:</span>
-                    <span th:text="${lugar_.descripcion}">Descripcion</span>
-                    <span>Precio:</span>
-                    <span th:text="${lugar_.Precio}">0</span>
-                    <a th:href="@{/lugares/edit/{id}(id=${lugar_.id})}" sec:authorize="hasRole('ADMIN')">Editar</a>
-                    <a th:href="@{/lugares/delete/{id}(id=${lugar_.id})}">Borrar</a>
-                    <a th:href="@{/valoracion/pro/{id}(id=${lugar_.id})}">
-                        Valoración: <span th:text="${lugar_.valoracion.size}">Id</span>
-                    </a>
-                </div>
-                <div class="col-sm-3">Hola</div>
-                <div class="col-sm-3"></div>
-                <div class="col-sm-3"></div>
-            </div>
-        </div>
-    </div>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-</body>
-
-</html> -->
-
-
-<!-- --------------------------------------------- -->
-
-<!-- <!DOCTYPE html>
-<html xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/newyork.css">
-    <link rel="stylesheet" href="/css/comun.css">
-    <title>Document</title>
-    <style>
-        
-    </style>
-</head>
-
-<body>
-
-    <nav class=" navbar navbar-expand-lg navbar-light ">
-        <a class="navbar-brand" id="easy" href="/">EasyTrip</a>
-    </nav>
-    <h1 id="titulo">New York</h1>
-    <br>
-    <br>
-    <div>
-        <div>
-            <div th:each="lugar_:${lugar.productos}">
-                <img src="#" alt="imagen">
-                <div th:text="${lugar_.ubicacion}">ubicacion</div>
-                <div id="nombreSitio" th:text="${lugar_.nombre}">nombre</div>
-                <div th:text="${lugar_.descripcion}">Descripcion <textarea cols="30" rows="10"></textarea></div>
-                <div th:text="${lugar_.Precio}">0</div>
-                <div sec:authorize="hasRole('ADMIN')"><a th:href="@{/lugares/edit/{id}(id=${lugar_.id})}">Editar</a></div>
-                <div sec:authorize="hasRole('ADMIN')"><a th:href="@{/lugares/delete/{id}(id=${lugar_.id})}">Borrar</a>
-                </div>
-                <div><a th:href="@{/valoracion/pro/{id}(id=${lugar_.id})}">Valoracion:
-                        <span th:text="${lugar_.valoracion.size}">Id</span>
-                    </a></div>
-                </div>
-        </div>
-    </div>
-    <a href="/lugares/new" sec:authorize="hasRole('ADMIN')">Nuevo Lugar</a>
-    <div class="card text-center" id="cerrarSesion">
-        <div class="card-body">
-            <form id="boton" th:action="@{/logout}" method="post">
-                <input type="submit" class="btn" value="Cerrar sesión">
-            </form>
-        </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
-        integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
-        crossorigin="anonymous"></script>
-
-</body>
-
-</html> -->
-
 <!DOCTYPE html>
 <html xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 
@@ -149,69 +7,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/newyork.css">
-    <link rel="stylesheet" href="/css/comun.css">
-    <style>
-        .container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-column-gap: 2cm;
-        }
-
-        .contenedorMiniaturaItem {
-            border: 1px solid black;
-            padding: 1cm;
-        }
-    </style>
-    <title>Document</title>
+        <link rel="stylesheet" href="/css/estructuraDeLosLugares.css">
+        <link rel="stylesheet" href="/css/comun.css">
+    <title>NewYork</title>
 </head>
 
 <body>
-
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" id="easy" href="/">EasyTrip</a>
-    </nav>
+    <div class="container-fluid" id="logoEasyTrip">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" id="easy" href="/">EasyTrip</a>
+        </nav>
+    </div>
     <h1 id="titulo">New York</h1>
     <br>
-    <br>
-    <div class="container">
+    <div class="container" id="contenedorDatos">
         <div th:each="lugar_:${lugar.productos}" class="contenedorMiniaturaItem">
             <div class="contenedorMiniaturaImagen">
-                <!-- <div id="dropZone" style="width: 300px; height: 300px; border: 2px dashed gray;">
-                    Arrastra y suelta tus imágenes aquí.
-                  </div> -->
-
-
-                <img src="#" alt="imagen">
+                <img th:src="@{/lugares/image/{id}(id=${lugar_.id})}" alt="Imagen del lugar" width="100" height="100">
             </div>
             <div class="contenedorMiniaturaInfo">
                 <div>
-                    <p th:text="${lugar_.ubicacion}">ubicacion</p>
                     <p id="nombreSitio" th:text="${lugar_.nombre}">nombre</p>
+                    <p th:text="${lugar_.horario}">horario</p>
                 </div>
                 <div>
-                    <p><a th:href="@{/valoracion/pro/{id}(id=${lugar_.id})}">Valoracion:
+                    <p><a th:href="@{/valoracion/lug/{id}(id=${lugar_.id})}">Valoracion:
                             <span th:text="${lugar_.valoracion.size}">Id</span>
                         </a></p>
-                    <p th:text="${lugar_.Precio}">0</p>
+                    <p th:text="${lugar_.precioEU}">0</p>
                 </div>
             </div>
             <p th:text="${lugar_.descripcion}">Descripcion <textarea cols="30" rows="10"></textarea></p>
-            <div>
-
-            </div>
-            <!-- <p sec:authorize="hasRole('ADMIN')"><a th:href="@{/lugares/edit/{id}(id=${lugar_.id})}">Editar</a>
-            </p>
-            <p sec:authorize="hasRole('ADMIN')"><a th:href="@{/lugares/delete/{id}(id=${lugar_.id})}">Borrar</a>
-            </p> -->
-
         </div>
     </div>
     <a href="/lugares/new" sec:authorize="hasRole('ADMIN')">Nuevo Lugar</a>
     <div class="card text-center" id="cerrarSesion">
         <div class="card-body">
             <form id="boton" th:action="@{/logout}" method="post">
-                <input type="submit" class="btn" value="Cerrar sesión">
+                <input id="sesionBoton" type="submit" class="btn btn-secondary" value="Cerrar sesión">
             </form>
         </div>
     </div>
